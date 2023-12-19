@@ -16,7 +16,7 @@ int main()
     mlx_pixel_put(ptr_check , window_ptr , 50, 50 ,0xFF0000 );
     mlx_pixel_put(ptr_check , window_ptr , 60, 60 ,0xFF0000 );
     mlx_pixel_put(ptr_check , window_ptr , 70, 70 ,0xFF6000 );
-    imgptr = mlx_xpm_file_to_image(ptr_check , "end-.xpm" , &nu , &number );
+    imgptr = mlx_xpm_file_to_image(ptr_check , "hh.xpm" , &nu , &number );
     mlx_put_image_to_window(ptr_check , window_ptr , imgptr , 50 , 50);
     mlx_loop(ptr_check);
 }
