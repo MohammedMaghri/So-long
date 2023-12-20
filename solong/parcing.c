@@ -32,36 +32,22 @@ char *thisfunctionreader(char *text ,char *string , int fd , int size)
         string[readsize] = '\0';
     }
     if (text)
-    {
         if (text[0] == '\0')
         {
             free(text);
             return (0);
         }
-    }
     return (text);
 }
 char *functionfilereader(int fd)
 {
-    int size = 100;
+    int size = 1000;
     static char *text ;
     char *thistext ;
 
     if (fd < 0 )
-    {
         return (0) ;
-    }
     thistext = malloc(sizeof(char) * size + 1);
     text = thisfunctionreader(text , thistext ,fd ,  size );
     return thistext ;
-}
-int main ()
-{
-    int fd = 0 ;
-    fd = open( "txt.txt" , fd);
-    char *string ;
-    string = functionfilereader(fd);
-    int res = checkvalidmap(string);
-    int turn = checkwithealllines(string , res);
-    printf( "%d %d", turn , res );
 }
