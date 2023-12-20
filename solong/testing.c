@@ -72,6 +72,7 @@ char **string(char *string)
         if (string[index] == '\n')
         {
             checkpoint = index ;
+            checkpoint-- ;
             allocation[i] = stringmove(string, checkpoint);
             checkpoint++ ;
              string = makeacopy(&string[checkpoint]);
@@ -79,6 +80,8 @@ char **string(char *string)
         }
         index++ ;
     }
+    allocation[i] = makeacopy(string);   
+    i++;
     allocation[i] = NULL;
     return allocation;
 }
@@ -87,13 +90,10 @@ int main()
     int fd = 0 ;
     fd = open("txt.txt" , fd);
     char *res = functionfilereader(fd);
+    int len = lencount(res);
     char **rus = string(res);
     printf("%s)- \n" , res);
     printf("\n");
     int i = 0;
-    while (i < 6)
-    {
-        printf("%s\n" ,rus[i] );
-        i++ ;
-    }
+    printf("%s" ,rus[0] );
 }

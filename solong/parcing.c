@@ -41,7 +41,7 @@ char *thisfunctionreader(char *text ,char *string , int fd , int size)
 }
 char *functionfilereader(int fd)
 {
-    int size = 1000;
+    int size = 10000;
     static char *text ;
     char *thistext ;
 
