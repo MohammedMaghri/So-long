@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:56:33 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 13:01:57 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/23 14:28:51 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,44 @@
 
 int	maplenghtcheck(char **string)
 {
-	int	index ;
+	t_map	maplenght;
 
-	index = 0 ;
-	while (string[index])
+	maplenght.index = 0;
+	while (string[maplenght.index])
 	{
-		index++ ;
+		maplenght.index++ ;
 	}
-	return (index);
+	return (maplenght.index - 1);
+}
+
+int	chekingarraybyone(char *string)
+{
+	t_map	arayby;
+
+	arayby.index = lencount(string) - 1;
+	if (string[0] != '1')
+		return (printf("Sides Should have Walls....!"), -1);
+	if (string[arayby.index] != '1')
+		return (printf("Last Sides should Have Walls....!"), -1);
+	return (0);
+}
+
+int	checksidesofmap(char **string)
+{
+	t_map	checksides ;
+
+	checksides.totallenghtline = maplenghtcheck(string);
+	checksides.index = 0;
+	checksides.res = 0;
+	while (string[checksides.index] && checksides.index < \
+		checksides.totallenghtline)
+	{
+		checksides.res = chekingarraybyone(string[checksides.index]);
+		if (checksides.res == -1)
+			return (-1);
+		checksides.index++ ;
+	}
+	return (0);
 }
 
 int	checkvalidity(int player, int collec, int out)
@@ -42,15 +72,14 @@ int	checkthelenghtline(char **array)
 	thismap.checkinglinevalidity = 0;
 	thismap.index = 0;
 	thismap.checkinglinevalidity = lencount(array[0]);
-	while (array[thismap.index])
+	while (array[thismap.index] && thismap.index < maplenghtcheck(array))
 	{
 		if (lencount(array[thismap.index]) != thismap.checkinglinevalidity)
-			return (printf("Lines are nor the same .. !"), -1);
+			return (printf("Lines are not the same . !\n"), -1);
 		thismap.index++ ;
 	}
 	return (0);
 }
-
 int	checkmapvaliditiy(char *string)
 {
 	t_map	mymap;
@@ -85,31 +114,38 @@ int	checkifsquare(char **string)
 
 	square.index = 0;
 	square.totallenghtline = maplenghtcheck(string);
+	square.res = checkthelenghtline(string);
+	if (lencount(string[0]) == square.totallenghtline)
+		return (printf("The Map should not be a square ...! "), -1);
 	while (string[0][square.index])
 	{
-		if (string[0][square.index] != 1)
-			return (printf("Map must be surrounded By walls....!"), -1);
+		if (string[0][square.index] != '1')
+			return (printf("The first Wall should Be closed ....!") \
+				, -1);
 		square.index++ ;
 	}
-	return (0);
-}
-
-int	mergecheck(char **string)
-{
-	t_map	check;
-
-	check.index = 0;
-	check.checker = 0;
-	check.checker = checkthelenghtline(string);
+	square.res = checksidesofmap(string);
+	square.index = 0;
+	while (string[square.totallenghtline][square.index])
+	{
+		if (string[square.totallenghtline][square.index] != '1')
+			return (printf("The Last wall should Be closed By walls... !") \
+				, -1);
+		square.index++ ;
+	}
 	return (0);
 }
 
 int	main(void)
 {
 	t_map	thismain;
-
+	int index =  0;
 	thismain.filed = open("txt.txt", O_RDONLY);
 	thismain.allocation = functionfilereader(thismain.filed);
 	thismain.twode = stringreturn(thismain.allocation);
-	
+	int res = checkifsquare(thismain.twode);
+	// {
+	// 	printf("%s\n" , thismain.twode[index]);
+	// 	index++ ;
+	// }
 }

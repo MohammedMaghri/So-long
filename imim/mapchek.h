@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 12:57:10 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/23 13:23:23 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct mapvlidity
 {
+	int		res ;
 	int		filed;
 	int		i;
 	char	**twode;
