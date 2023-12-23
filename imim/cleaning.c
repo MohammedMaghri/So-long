@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapvlidityvalid.c                                  :+:      :+:    :+:   */
+/*   cleaning.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 11:56:33 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 16:51:01 by mmaghri          ###   ########.fr       */
+/*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
+/*   Updated: 2023/12/23 16:59:11 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,26 @@ int	maplenghtcheck(char **string)
 	return (maplenght.index - 1);
 }
 
+int	checkvalidity(int player, int collec, int out)
+{
+	if (player != 1)
+		return (printf("The map is Not Valid Player's must  be one\n"), -1);
+	if (collec < 1)
+		return (printf("The map is Not Valid Collectibles are less then one\n"), -1);
+	if (out != 1)
+		return (printf("The map is Not Valid It must be one Exit !\n"), -1);
+	return (0);
+}
+
 int	chekingarraybyone(char *string)
 {
 	t_map	arayby;
 
 	arayby.index = lencount(string) - 1;
 	if (string[0] != '1')
-		return (printf("Sides Should have Walls....!"), -1);
+		return (printf("The map is Not Valid Sides Should have Walls....!\n"), -1);
 	if (string[arayby.index] != '1')
-		return (printf("Last Sides should Have Walls....!"), -1);
+		return (printf("The map is Not Valid Last Sides should Have Walls....!\n"), -1);
 	return (0);
 }
 
@@ -54,17 +65,6 @@ int	checksidesofmap(char **string)
 	return (0);
 }
 
-int	checkvalidity(int player, int collec, int out)
-{
-	if (player != 1)
-		return (printf("Player's must only be one"), -1);
-	if (collec < 1)
-		return (printf("Collectibles are less then one"), -1);
-	if (out != 1)
-		return (printf("It must be one Exit !"), -1);
-	return (0);
-}
-
 int	checkthelenghtline(char **array)
 {
 	t_map	thismap ;
@@ -79,34 +79,6 @@ int	checkthelenghtline(char **array)
 		thismap.index++ ;
 	}
 	return (0);
-}
-
-int	checkmapvaliditiy(char *string)
-{
-	t_map	mymap;
-	int		index ;
-	int		check ;
-
-	mymap.index = 0 ;
-	mymap.player = 0 ;
-	mymap.collectiles = 0;
-	mymap.runout = 0;
-	while (string[mymap.index])
-	{
-		if (string[mymap.index] != 'P' && string[mymap.index] != 'C' && \
-		string[mymap.index] != 'E' && string[mymap.index] != '1' && \
-		string[mymap.index] != '0')
-			return (printf(" Wierd ithem detected ..! "), -1);
-		if (string[mymap.index] == 'P')
-			mymap.player += 1;
-		if (string[mymap.index] == 'C')
-			mymap.collectiles += 1 ;
-		if (string[mymap.index] == 'E')
-			mymap.runout += 1 ;
-		mymap.index++ ;
-	}
-	check = checkvalidity(mymap.player, mymap.collectiles, mymap.runout);
-	return (check);
 }
 
 int	checktheitems(char **string)
@@ -146,11 +118,11 @@ int	checkwalsinmap(char **string)
 	square.totallenghtline = maplenghtcheck(string);
 	square.res = checkthelenghtline(string);
 	if (lencount(string[0]) == square.totallenghtline)
-		return (printf("The Map should not be a square ...! "), -1);
+		return (printf("The Map should not be a square ...! \n"), -1);
 	while (string[0][square.index])
 	{
 		if (string[0][square.index] != '1')
-			return (printf("The first Wall should Be closed ....!") \
+			return (printf("The first Wall should Be closed ....!\n") \
 				, -1);
 		square.index++ ;
 	}
@@ -159,7 +131,7 @@ int	checkwalsinmap(char **string)
 	while (string[square.totallenghtline][square.index])
 	{
 		if (string[square.totallenghtline][square.index] != '1')
-			return (printf("The Last wall should Be closed By walls... !") \
+			return (printf("The Last wall should Be closed By walls... !\n") \
 				, -1);
 		square.index++ ;
 	}
@@ -171,7 +143,19 @@ int	mergetocheck(char **string)
 	t_map	themerge ;
 
 	themerge.index = checkwalsinmap(string);
-	themerge.index = checktheitems(string);
+	themerge.checker = checktheitems(string);
 	return (0);
 }
 
+int	main(void)
+{
+	t_map	thismain;
+	int		index;
+	int		res;
+
+	index = 0;
+	thismain.filed = open("txt.txt", O_RDONLY);
+	thismain.allocation = functionfilereader(thismain.filed);
+	thismain.twode = stringreturn(thismain.allocation);
+	mergetocheck(thismain.twode);
+}

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 13:23:23 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/23 16:40:57 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ typedef struct mapvlidity
 	int		totallenghtline ;
 }	t_map;
 
+int		chekthewalsinmap(char **string);
 int		lencount(char *string);
 char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
 char	*functionfilereader(int fd);
-int		checkwithealllines(char *string, int linetotal);
 int		checkhowmany(char *string);
 
 #endif
