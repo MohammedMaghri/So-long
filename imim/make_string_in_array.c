@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   copyinginthevalid.c                                :+:      :+:    :+:   */
+/*   make_string_in_array.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 13:45:48 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 20:05:02 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,15 @@ int	countnewline(char *string)
 		newlinecount.index++ ;
 	}
 	return (newlinecount.flag + 1);
+}
+
+int	checkrows(char string, int collectible, int exit)
+{
+	if (string == 'C')
+		collectible++ ;
+	if (string == 'E')
+		exit++ ;
+	return (0);
 }
 
 char	**stringreturn(char *string)

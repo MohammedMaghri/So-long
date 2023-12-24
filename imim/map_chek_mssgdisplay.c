@@ -6,13 +6,13 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:13:44 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 15:03:32 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 20:37:54 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-
+//check if the number of ( the col out amd player )are valid
 int	checkvalidity(int player, int collec, int out)
 {
 	if (player != 1)
@@ -25,6 +25,8 @@ int	checkvalidity(int player, int collec, int out)
 	return (0);
 }
 
+// check the first and the last index of
+// the string in the array if it has walls 
 int	chekingarraybyone(char *string)
 {
 	t_map	arayby;
@@ -39,6 +41,7 @@ int	chekingarraybyone(char *string)
 	return (0);
 }
 
+// check each row if its valid or not 
 int	checksidesofmap(char **string)
 {
 	t_map	checksides ;
@@ -57,6 +60,7 @@ int	checksidesofmap(char **string)
 	return (0);
 }
 
+// check the lenght of the rows in the array if they are valid (the same)
 int	checkthelenghtline(char **array)
 {
 	t_map	thismap ;
@@ -69,6 +73,40 @@ int	checkthelenghtline(char **array)
 		if (lencount(array[thismap.index]) != thismap.checkinglinevalidity)
 			return (printf("Lines are not the same . !\n"), -1);
 		thismap.index++ ;
+	}
+	return (0);
+}
+
+int	backtrack(char **string, int row, int colum)
+{
+	static int	exit;
+	static int	collectible;
+	int x ;
+	row = player_row_position(string);
+	colum = player_colum_position(string);
+	if (string[row - 1][colum] != '1' && string[row][colum] != 'F')
+	{
+		checkrows(string[row - 1][colum], exit, collectible);
+		string[row - 1][colum] = 'F';
+		backtrack(string, row - 1, colum);
+	}
+	if (string[row][colum + 1] != '1' && string[row][colum] != 'F')
+	{
+		checkrows(string[row][colum + 1], exit, collectible);
+		string[row][colum + 1] = 'F';
+		backtrack(string, row, colum + 1);
+	}
+	if (string[row][colum - 1] != '1' && string[row][colum] != 'F')
+	{
+		checkrows(string[row][colum - 1], exit, collectible);
+		string[row][colum - 1] = 'F';
+		backtrack(string, row, colum - 1);
+	}
+	if (string[row + 1][colum] != '1' && string[row + 1][colum] != 'F')
+	{
+		checkrows(string[row + 1][colum], exit, collectible);
+		string[row + 1][colum] = 'F';
+		backtrack(string, row + 1, colum);
 	}
 	return (0);
 }

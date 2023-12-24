@@ -6,13 +6,13 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 15:37:34 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 19:19:55 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-
+// count the lenght of the 2d array map .
 int	maplenghtcheck(char **string)
 {
 	t_map	maplenght;
@@ -25,7 +25,7 @@ int	maplenghtcheck(char **string)
 	return (maplenght.index - 1);
 }
 
-
+// function that counts items so we passe it to the function
 int	checktheitems(char **string)
 {
 	t_map	items ;
@@ -54,7 +54,9 @@ int	checktheitems(char **string)
 	return (0);
 }
 
-
+//this function checks the first row if its all walls 
+//and also the last one also by making
+//sure the check the whole sides with the checksides function .
 int	checkwalsinmap(char **string)
 {
 	t_map	square;
@@ -90,8 +92,8 @@ int	mergecheking(char **string)
 	merge.res = checkwalsinmap(string);
 	if (merge.res == -1)
 		return (-1);
-	merge.res = checktheitems(string);
-	if (merge.res == -1)
+	merge.index = checktheitems(string);
+	if (merge.index == -1)
 		return (-1);
 	return (0);
 }
@@ -106,5 +108,7 @@ int	main(void)
 	thismain.flag = mergecheking(thismain.twode);
 	thismain.filed = player_colum_position(thismain.twode);
 	thismain.numberofclomums = player_row_position(thismain.twode);
-	printf("[%d] [%d]", thismain.numberofclomums, thismain.filed);
+	thismain.row = 0;
+	thismain.runout = 0;
+	thismain.i = backtrack(thismain.twode, thismain.row, thismain.runout);
 }
