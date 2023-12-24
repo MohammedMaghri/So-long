@@ -12,7 +12,6 @@
 
 #include "mapchek.h"
 
-// Funciton to display the player colum position
 int	player_colum_position(char **string)
 {
 	t_map	columposition;
@@ -36,7 +35,6 @@ int	player_colum_position(char **string)
 	return (0);
 }
 
-//Function to extract the player row position
 int	player_row_position(char **string)
 {
 	t_map	position ;
