@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/23 16:40:57 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 15:35:18 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ typedef struct mapvlidity
 	int		totallenghtline ;
 }	t_map;
 
+int		player_row_position(char **string);
+int		player_colum_position(char **string);
+int		weirddetection(char string);
+int		maplenghtcheck(char **string);
+int		checkthelenghtline(char **array);
+int		checksidesofmap(char **string);
+int		checkvalidity(int player, int collec, int out);
+int		chekingarraybyone(char *string);
 int		chekthewalsinmap(char **string);
 int		lencount(char *string);
 char	**stringreturn(char *string);
