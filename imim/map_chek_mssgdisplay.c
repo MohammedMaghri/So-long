@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:13:44 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 20:37:54 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 22:34:11 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,36 +77,49 @@ int	checkthelenghtline(char **array)
 	return (0);
 }
 
-int	backtrack(char **string, int row, int colum)
+int	backtrack(char **string, int x, int y)
 {
+	t_map		backtrace;
 	static int	exit;
 	static int	collectible;
-	int x ;
-	row = player_row_position(string);
-	colum = player_colum_position(string);
-	if (string[row - 1][colum] != '1' && string[row][colum] != 'F')
+
+	printf("%d  [%d]", exit, collectible);
+	backtrace.linelenght = maplenghtcheck(string);
+	if ((x - 1) >= 0 && string[x - 1][y] != '1' \
+	&& string[x - 1][y] != 'F')
 	{
-		checkrows(string[row - 1][colum], exit, collectible);
-		string[row - 1][colum] = 'F';
-		backtrack(string, row - 1, colum);
+		string[x][y] = 'F';
+		x--;
+		checkrows(string[x][y], &exit, &collectible);
+		backtrack(string, x, y);
 	}
-	if (string[row][colum + 1] != '1' && string[row][colum] != 'F')
+	if ((y + 1) < lencount(string[x]) && \
+	string[x][y + 1] != '1' && string[x][y + 1] != 'F')
 	{
-		checkrows(string[row][colum + 1], exit, collectible);
-		string[row][colum + 1] = 'F';
-		backtrack(string, row, colum + 1);
+		string[x][y] = 'F';
+		y++ ;
+		checkrows(string[x][y], &exit, &collectible);
+		backtrack(string, x, y);
 	}
-	if (string[row][colum - 1] != '1' && string[row][colum] != 'F')
+	if ((y - 1) >= 0 && string[x][y - 1] \
+	!= '1' && string[x][y - 1] != 'F')
 	{
-		checkrows(string[row][colum - 1], exit, collectible);
-		string[row][colum - 1] = 'F';
-		backtrack(string, row, colum - 1);
+		string[x][y] = 'F';
+		y-- ;
+		checkrows(string[x][y], &exit, &collectible);
+		backtrack(string, x, y);
 	}
-	if (string[row + 1][colum] != '1' && string[row + 1][colum] != 'F')
+	if (x < backtrace.linelenght && string[x + 1][y] != '1' && \
+	string[x + 1][y] != 'F')
 	{
-		checkrows(string[row + 1][colum], exit, collectible);
-		string[row + 1][colum] = 'F';
-		backtrack(string, row + 1, colum);
+		string[x][y] = 'F';
+		x++ ;
+		checkrows(string[x][y], &exit, &collectible);
+		backtrack(string, x, y);
+	}
+	if (collectible == 3)
+	{
+			printf("succesfully Done");
 	}
 	return (0);
 }

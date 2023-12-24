@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 19:19:55 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 22:29:06 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,5 @@ int	main(void)
 	thismain.flag = mergecheking(thismain.twode);
 	thismain.filed = player_colum_position(thismain.twode);
 	thismain.numberofclomums = player_row_position(thismain.twode);
-	thismain.row = 0;
-	thismain.runout = 0;
-	thismain.i = backtrack(thismain.twode, thismain.row, thismain.runout);
+	thismain.i = backtrack(thismain.twode, thismain.numberofclomums, thismain.filed);
 }

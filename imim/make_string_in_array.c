@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 20:05:02 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/24 22:26:38 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ int	countnewline(char *string)
 	return (newlinecount.flag + 1);
 }
 
-int	checkrows(char string, int collectible, int exit)
+int	checkrows(char string, int *collectible, int *exit)
 {
 	if (string == 'C')
-		collectible++ ;
+		*collectible += 1;
 	if (string == 'E')
-		exit++ ;
+		*exit += 1;
 	return (0);
 }
 
