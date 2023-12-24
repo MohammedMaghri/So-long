@@ -12,7 +12,7 @@
 
 #include "mapchek.h"
 
-//check if the number of ( the col out amd player )are valid
+
 int	checkvalidity(int player, int collec, int out)
 {
 	if (player != 1)
@@ -25,8 +25,6 @@ int	checkvalidity(int player, int collec, int out)
 	return (0);
 }
 
-// check the first and the last index of
-// the string in the array if it has walls 
 int	chekingarraybyone(char *string)
 {
 	t_map	arayby;
@@ -41,7 +39,6 @@ int	chekingarraybyone(char *string)
 	return (0);
 }
 
-// check each row if its valid or not 
 int	checksidesofmap(char **string)
 {
 	t_map	checksides ;
@@ -60,7 +57,6 @@ int	checksidesofmap(char **string)
 	return (0);
 }
 
-// check the lenght of the rows in the array if they are valid (the same)
 int	checkthelenghtline(char **array)
 {
 	t_map	thismap ;
