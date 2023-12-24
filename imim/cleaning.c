@@ -12,7 +12,7 @@
 
 #include "mapchek.h"
 
-// count the lenght of the 2d array map .
+
 int	maplenghtcheck(char **string)
 {
 	t_map	maplenght;
@@ -25,7 +25,7 @@ int	maplenghtcheck(char **string)
 	return (maplenght.index - 1);
 }
 
-// function that counts items so we passe it to the function
+
 int	checktheitems(char **string)
 {
 	t_map	items ;
@@ -54,9 +54,7 @@ int	checktheitems(char **string)
 	return (0);
 }
 
-//this function checks the first row if its all walls 
-//and also the last one also by making
-//sure the check the whole sides with the checksides function .
+
 int	checkwalsinmap(char **string)
 {
 	t_map	square;
