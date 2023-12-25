@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 22:29:06 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/25 18:48:46 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,22 @@ int	checkwalsinmap(char **string)
 	return (0);
 }
 
-int	mergecheking(char **string)
+int	maplastcheck(char **string)
 {
-	t_map	merge;
+	int		res;
+	t_map	lastcheck ;
 
-	merge.res = checkwalsinmap(string);
-	if (merge.res == -1)
-		return (-1);
-	merge.index = checktheitems(string);
-	if (merge.index == -1)
-		return (-1);
+	lastcheck.index = 0;
+	lastcheck.totallenghtline = maplenghtcheck(string);
+	res = 0;
+	while (lastcheck.index < maplenghtcheck(string))
+	{
+		res = checkrows(string[lastcheck.index]);
+		if (res == -1)
+			return (printf("\nThe Player can't reach the tokens in Map\
+			 \n         Validity is invalid ..!\n\n"), -1);
+		lastcheck.index++ ;
+	}
 	return (0);
 }
 
@@ -105,8 +111,8 @@ int	main(void)
 	thismain.filed = open("txt.txt", O_RDONLY);
 	thismain.allocation = functionfilereader(thismain.filed);
 	thismain.twode = stringreturn(thismain.allocation);
-	thismain.flag = mergecheking(thismain.twode);
 	thismain.filed = player_colum_position(thismain.twode);
 	thismain.numberofclomums = player_row_position(thismain.twode);
-	thismain.i = backtrack(thismain.twode, thismain.numberofclomums, thismain.filed);
+	mergecheking(thismain.twode, thismain.numberofclomums, thismain.filed);
+	printmapposition(thismain.twode);
 }

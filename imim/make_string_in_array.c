@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/25 11:30:45 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/25 18:56:50 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ char	*makestringopy(char *string)
 
 	make.index = 0;
 	make.allocation = malloc(sizeof(string) * lencount(string) + 1);
+	if (!make.allocation)
+	{
+		free(make.allocation);
+		return (NULL);
+	}
 	while (string[make.index])
 	{
 		make.allocation[make.index] = string[make.index];
@@ -45,6 +50,11 @@ char	*copyofthestringuse(char *string, int maxlenght)
 
 	copy.index = 0 ;
 	copy.allocation = malloc(sizeof(char) * maxlenght + 1);
+	if (!copy.allocation)
+	{
+		free(copy.allocation);
+		return (NULL);
+	}
 	while (string[copy.index] && copy.index <= maxlenght)
 	{
 		copy.allocation[copy.index] = string[copy.index];
@@ -69,36 +79,15 @@ int	countnewline(char *string)
 	return (newlinecount.flag + 1);
 }
 
-int	checkrows(char string, int *collectible, int *exit)
-{
-	if (string == 'C')
-		*collectible += 1;
-	if (string == 'E')
-		*exit += 1;
-	return (0);
-}
-
-void printmapposition(char **string)
-{
-	t_map	printmappostion ;
-
-	printmappostion.index = 0;
-	printmappostion.linelenght = maplenghtcheck(string);
-	while (printmappostion.index <= printmappostion.linelenght)
-	{
-		printf("%s\n", string[printmappostion.index]);
-		printmappostion.index++ ;
-	}
-}
-
 char	**stringreturn(char *string)
 {
 	t_map	turn;
 
 	turn.index = 0;
-	turn.checkpoint = 0 ;
 	turn.i = 0 ;
 	turn.twode = malloc(sizeof(char **) * (countnewline(string) + 1));
+	if (!turn.twode)
+		return (free(turn.twode), NULL);
 	while (string[turn.index])
 	{
 		if (string[turn.index] == '\n')

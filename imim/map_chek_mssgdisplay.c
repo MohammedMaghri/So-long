@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:13:44 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/25 11:35:52 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/25 13:58:53 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,57 +77,6 @@ int	checkthelenghtline(char **array)
 	return (0);
 }
 
-int	backtrack(char **string, int x, int y)
-{
-	t_map		backtrace;
-	static int	exit;
-	static int	collectible;
-
-	printmapposition(string);
-	printf("\n");
-	backtrace.linelenght = maplenghtcheck(string);
-	if ((y - 1) >= 0 && string[x][y - 1] \
-	!= '1' && string[x][y - 1] != 'F')
-	{
-		y-- ;
-		string[x][y] = 'F';
-		checkrows(string[x][y], &exit, &collectible);
-		backtrack(string, x, y);
-	}
-	printmapposition(string);
-	printf("\n");
-	if (x < backtrace.linelenght && string[x + 1][y] != '1' && \
-	string[x + 1][y] != 'F')
-	{
-		x++ ;
-		string[x][y] = 'F';
-		checkrows(string[x][y], &exit, &collectible);
-		backtrack(string, x, y);
-	}
-	printmapposition(string);
-	printf("\n");
-	if ((y + 1) < lencount(string[x]) && \
-	string[x][y + 1] != '1' && string[x][y + 1] != 'F')
-	{
-		y++ ;
-		string[x][y] = 'F';
-		checkrows(string[x][y], &exit, &collectible);
-		backtrack(string, x, y);
-	}
-	printmapposition(string);
-	printf("\n");
-	if ((x - 1) >= 0 && string[x - 1][y] != '1' \
-	&& string[x - 1][y] != 'F')
-	{
-		x--;
-		string[x][y] = 'F';
-		checkrows(string[x][y], &exit, &collectible);
-		backtrack(string, x, y);
-	}
-	printmapposition(string);
-	printf("\n");
-	return (0);
-}
 int	weirddetection(char string)
 {
 	if (string != 'C' && string != 'P' && string != 'E' && \
