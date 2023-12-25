@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/24 22:26:38 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/25 11:30:45 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,19 @@ int	checkrows(char string, int *collectible, int *exit)
 	if (string == 'E')
 		*exit += 1;
 	return (0);
+}
+
+void printmapposition(char **string)
+{
+	t_map	printmappostion ;
+
+	printmappostion.index = 0;
+	printmappostion.linelenght = maplenghtcheck(string);
+	while (printmappostion.index <= printmappostion.linelenght)
+	{
+		printf("%s\n", string[printmappostion.index]);
+		printmappostion.index++ ;
+	}
 }
 
 char	**stringreturn(char *string)
