@@ -8,7 +8,6 @@ developed internally and includes basic necessary tools to open a window, create
 and deal with keyboard and mouse events.
 The other goals are similar to every other goal for this first year: being rigorous, level
 up in C programming, use basic algorithms, do some information research, and so forth.
-<img width="2140" alt="Screen Shot 2023-12-23 at 2 30 13 PM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/ed47a16f-2c2e-4f02-a35e-7079c61e671a">
+<img width="2455" alt="Screen Shot 2023-12-25 at 7 01 38 PM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/43d99534-190e-4857-bd4a-40e8735ae31c">
 
 
-<img width="2140" alt="Screen Shot 2023-12-21 at 10 32 50 PM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/ff5bdee4-ffb3-4a57-b293-83e321a366bd">
