@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/26 17:14:14 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/26 20:22:53 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 typedef struct mapvlidity
 {
+	char	*coll;
 	char	*wallptr;
 	char	*ground;
 	int		xx;
