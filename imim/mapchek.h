@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/25 18:41:14 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/26 17:14:14 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,16 @@
 # include <stdlib.h>
 # include "mapchek.h"
 # include <fcntl.h>
+# include <mlx.h>
 
 typedef struct mapvlidity
 {
+	char	*wallptr;
+	char	*ground;
+	int		xx;
+	int		yy;
+	void	*windowptr;
+	char	*imageptr;
 	int		row ;
 	int		colum;
 	int		res ;
@@ -39,6 +46,7 @@ typedef struct mapvlidity
 	int		linelenght ;
 	int		checkinglinevalidity ;
 	int		totallenghtline ;
+	void	*ptrmlx;
 }	t_map;
 
 int		checkwalsinmap(char **string);

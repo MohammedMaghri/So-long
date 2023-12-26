@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/25 18:48:46 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/26 16:29:26 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,15 @@ int	maplastcheck(char **string)
 	return (0);
 }
 
-int	main(void)
-{
-	t_map	thismain;
+// int	main(void)
+// {
+// 	t_map	thismain;
 
-	thismain.filed = open("txt.txt", O_RDONLY);
-	thismain.allocation = functionfilereader(thismain.filed);
-	thismain.twode = stringreturn(thismain.allocation);
-	thismain.filed = player_colum_position(thismain.twode);
-	thismain.numberofclomums = player_row_position(thismain.twode);
-	mergecheking(thismain.twode, thismain.numberofclomums, thismain.filed);
-	printmapposition(thismain.twode);
-}
+// 	thismain.filed = open("map.txt", O_RDONLY);
+// 	thismain.allocation = functionfilereader(thismain.filed);
+// 	thismain.twode = stringreturn(thismain.allocation);
+// 	thismain.filed = player_colum_position(thismain.twode);
+// 	thismain.numberofclomums = player_row_position(thismain.twode);
+// 	mergecheking(thismain.twode, thismain.numberofclomums, thismain.filed);
+// 	printmapposition(thismain.twode);
+// }

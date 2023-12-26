@@ -5,10 +5,23 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 check = Check
 
-all : $(check);
+all : $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME) : $(OBJS)
+	ar rcs $@ $^
+
 $(check) : $(OBJS) mapchek.h
 	$(CC) $(CFLAGS) -o $(check) $(OBJS)
-clean  : 
+
+clean:
 	rm -rf $(OBJS)
-fclean : clean 
-	rm -rf $(check)
+
+fclean: clean
+	rm -rf $(NAME) $(check)
+
+re: fclean all
+
+.PHONY: all clean fclean re
