@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/27 19:17:30 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/27 20:40:40 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@
 
 typedef struct thefunctions
 {
+	int		xx;
+	int		yy;
 	int		index;
 	void	*forwindow;
 	void	*forinit;
-	void	*thisptr;
+	char	*pic;
+	void	*picpoiA;
+	void	*picB;
+	void	*picC;
 	int		x;
 	int		y;
 
