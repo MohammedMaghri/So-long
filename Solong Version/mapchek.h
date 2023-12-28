@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 12:54:57 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 18:30:52 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 
 typedef struct thefunctions
 {
-	int		xx;
-	int		yy;
 	int		index;
+	int		increment;
 	void	*forwindow;
 	void	*forinit;
 	char	*pic;
@@ -34,9 +33,12 @@ typedef struct thefunctions
 	void	*picC;
 	int		x;
 	int		y;
+	int		xx;
+	int		yy;
 	char	**twod;
 	char	**tocopy;
 }	t_fac;
+
 
 typedef struct mapvlidity
 {
@@ -69,10 +71,19 @@ typedef struct mapvlidity
 	void	*ptrmlx;
 }	t_map;
 
+typedef struct 	moveit
+{
+	char **doubled;
+} t_move;
+
+// char	**functionoepn(char *string);
+void loopon(t_fac *func, char **string);
+char	*makestringopy(char *string);
 char	**copymap(char *string);
 char	*thisfunctionresader(char *string, int fd, int size);
 void	finif(t_fac *string, char **str);
-char	**functionoepn(char *string);
+char	**functionfilereader(int fd, t_move *map);
+char	**functionoepn(char *string, t_move *map);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
 int		checktheitems(char **string);
@@ -93,7 +104,7 @@ int		chekthewalsinmap(char **string);
 int		lencount(char *string);
 char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
-char	**functionfilereader(int fd);
+// char	**functionfilereader(int fd);
 int		checkhowmany(char *string);
 
 #endif

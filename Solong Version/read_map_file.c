@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 13:10:54 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 17:07:21 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,20 @@ char	*thisfunctionresader(char *string, int fd, int size)
 	}
 	return (string);
 }
-
-char	**functionfilereader(int fd)
+char	**putfromtoother(char **string)
+{
+	int index = 0;
+	int total = maplenghtcheck(string);
+	char **alocation = malloc(sizeof(char **) * total);
+	while (index <= total)
+	{
+		alocation[index] = makestringopy(string[index]);
+		index++ ;
+	}
+	alocation[index] = NULL ;
+	return alocation;
+}
+char	**functionfilereader(int fd, t_move *map)
 {
 	t_map	filereader;
 	int		size;
@@ -51,6 +63,7 @@ char	**functionfilereader(int fd)
 	thistext = malloc(sizeof(char) * size + 1);
 	thisfunctionresader(thistext, fd, size);
 	stringarray = stringreturn(thistext);
+	map->doubled = putfromtoother(stringarray);
 	filereader.numberofclomums = player_row_position(stringarray);
 	filereader.colum = player_colum_position(stringarray);
 	filereader.checker = mergecheking(stringarray, \
@@ -60,11 +73,11 @@ char	**functionfilereader(int fd)
 	return (stringarray);
 }
 
-char	**functionoepn(char *string)
+char	**functionoepn(char *string, t_move *map)
 {
 	t_map	putmap;
 
 	putmap.filed = open(string, O_RDONLY);
-	putmap.twode = functionfilereader(putmap.filed);
+	putmap.twode = functionfilereader(putmap.filed, map);
 	return (putmap.twode);
 }

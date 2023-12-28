@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/27 16:55:05 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 16:58:10 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**stringreturn(char *string)
 
 	turn.index = 0;
 	turn.i = 0 ;
-	turn.twode = malloc(sizeof(char **) * (countnewline(string) + 1));
+	turn.twode = malloc(sizeof(char *) * (countnewline(string) + 1));
 	if (!turn.twode)
 		return (free(turn.twode), NULL);
 	while (string[turn.index])

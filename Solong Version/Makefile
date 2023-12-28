@@ -3,7 +3,7 @@ SRC = graphic_part.c read_map_file.c read_string_to_array.c check_valid.c merge_
 OBJS = $(SRC:.c=.o)
 var = Check 
 CC = cc 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -rf 
 LDFLAGS = -L /usr/local/lib
 LDLIBS = -lmlx -framework OpenGL -framework AppKit
