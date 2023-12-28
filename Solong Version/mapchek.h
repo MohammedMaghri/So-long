@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/27 20:40:40 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 12:54:57 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ typedef struct thefunctions
 	void	*picC;
 	int		x;
 	int		y;
-
+	char	**twod;
+	char	**tocopy;
 }	t_fac;
 
 typedef struct mapvlidity
 {
+	char	**tocpy;
 	char	*coll;
 	char	*wallptr;
 	char	*ground;
@@ -67,6 +69,8 @@ typedef struct mapvlidity
 	void	*ptrmlx;
 }	t_map;
 
+char	**copymap(char *string);
+char	*thisfunctionresader(char *string, int fd, int size);
 void	finif(t_fac *string, char **str);
 char	**functionoepn(char *string);
 int		checkwalsinmap(char **string);
