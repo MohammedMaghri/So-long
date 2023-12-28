@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 16:58:10 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 22:12:19 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ char	*makestringopy(char *string)
 {
 	t_map	make;
 
+	// printf("\n|%c|\n", string[1]);
 	make.index = 0;
-	make.allocation = malloc(sizeof(string) * lencount(string) + 1);
+	make.allocation = malloc(sizeof(char) * lencount(string) + 1);
 	if (!make.allocation)
 	{
 		free(make.allocation);

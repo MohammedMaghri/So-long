@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 18:30:52 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 22:52:05 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,14 @@ typedef struct 	moveit
 } t_move;
 
 // char	**functionoepn(char *string);
-void loopon(t_fac *func, char **string);
+char	**putfromtoother(char **string);
+void	loopon(t_fac *func, char **string);
 char	*makestringopy(char *string);
 char	**copymap(char *string);
 char	*thisfunctionresader(char *string, int fd, int size);
 void	finif(t_fac *string, char **str);
-char	**functionfilereader(int fd, t_move *map);
-char	**functionoepn(char *string, t_move *map);
+char	**functionfilereader(int fd);
+char	**functionoepn(char *string);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
 int		checktheitems(char **string);

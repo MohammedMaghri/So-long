@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 18:30:24 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/28 23:01:56 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void loopon(t_fac *func, char **string)
 			func->yy = func->index * 60;
 			if (string[func->index][func->increment] == '1')
 				mlx_put_image_to_window(func->forinit, func->forwindow, func->pic, func->xx, func->yy);
+			if (string[func->index][func->increment] == 'P')
+				mlx_put_image_to_window(func->forinit, func->forwindow, func->picB, func->xx, func->yy);
 			func->increment++ ;
 		}
 		func->increment = 0;
@@ -61,15 +63,15 @@ void loopon(t_fac *func, char **string)
 int	main(void)
 {
 	t_map	mymap;
-	t_fac	me;
 	char	**res ;
-	t_move	meme;
-
+	// t_move	meme;
+	// char	**test;
+	t_fac	me;
 	mymap.checker = 60;
 	mymap.numberofclomums = 60;
-	res = functionoepn("map.txt", &meme);
+	res = functionoepn("map.txt");	
 	finif(&me, res);
-	loopon(&me, res);
+	loopon(&me,res);
 	mlx_loop(me.forinit);
 }
 
