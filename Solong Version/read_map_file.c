@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 23:00:53 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:11:49 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,25 @@ char	*thisfunctionresader(char *string, int fd, int size)
 	}
 	return (string);
 }
+
 char	**putfromtoother(char **string)
 {
-	int index = 0;
-	int total = maplenghtcheck(string);
-	char **alocation = malloc(sizeof(char *) * (total) + 1);
+	int		index ;
+	int		total;
+	char	**alocation;
+
+	index = 0;
+	total = maplenghtcheck(string);
+	alocation = malloc(sizeof(char *) * (total) + 1);
 	while (index <= maplenghtcheck(string))
-	{	
+	{
 		alocation[index] = makestringopy(string[index]);
 		index++ ;
 	}
 	alocation[index] = NULL;
-	return alocation;
+	return (alocation);
 }
+
 char	**functionfilereader(int fd)
 {
 	t_map	filereader;
@@ -57,6 +63,7 @@ char	**functionfilereader(int fd)
 	char	*thistext;
 	char	**stringarray;
 	char	**res;
+
 	size = 10000;
 	if (fd < 0)
 		return (0);

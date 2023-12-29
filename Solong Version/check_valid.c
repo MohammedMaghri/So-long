@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/27 18:45:18 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:06:45 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	checktheitems(char **string)
 
 	items.index = 0;
 	items.i = 0;
+	items.runout = 0;
 	items.collectiles = 0;
 	items.player = 0;
-	items.runout = 0;
 	while (items.index++ < maplenghtcheck(string))
 	{
 		while (string[items.index][items.i])
@@ -50,7 +50,8 @@ int	checktheitems(char **string)
 		}
 		items.i = 0;
 	}
-	checkvalidity(items.player, items.collectiles, items.runout);
+	if (checkvalidity(items.player, items.collectiles, items.runout) == -1)
+		return (-1);
 	return (0);
 }
 

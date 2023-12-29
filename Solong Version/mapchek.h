@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 22:52:05 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 12:20:36 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ typedef struct thefunctions
 	void	*forwindow;
 	void	*forinit;
 	char	*pic;
-	void	*picpoiA;
-	void	*picB;
-	void	*picC;
+	void	*picb;
+	void	*picc;
 	int		x;
 	int		y;
 	int		xx;
@@ -38,7 +37,6 @@ typedef struct thefunctions
 	char	**twod;
 	char	**tocopy;
 }	t_fac;
-
 
 typedef struct mapvlidity
 {
@@ -71,12 +69,11 @@ typedef struct mapvlidity
 	void	*ptrmlx;
 }	t_map;
 
-typedef struct 	moveit
+typedef struct moveit
 {
-	char **doubled;
-} t_move;
+	char	**doubled;
+}	t_move;
 
-// char	**functionoepn(char *string);
 char	**putfromtoother(char **string);
 void	loopon(t_fac *func, char **string);
 char	*makestringopy(char *string);
