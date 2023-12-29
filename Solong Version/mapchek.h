@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 16:51:03 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:15:59 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 typedef struct thefunctions
 {
+	int		colom;
+	int		row;
 	int		index;
 	int		increment;
 	void	*forwindow;
@@ -74,6 +76,7 @@ typedef struct moveit
 	char	**doubled;
 }	t_move;
 
+int keeeey(int key, t_fac *me);
 char	**putfromtoother(char **string);
 void	loopon(t_fac *func, char **string);
 char	*makestringopy(char *string);
@@ -104,6 +107,6 @@ char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
 int		check_w(char **string);
 int		checkhowmany(char *string);
-int		evry_thing(char *string);
+char	**evry_thing(char *string);
 
 #endif

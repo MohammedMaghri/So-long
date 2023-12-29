@@ -6,13 +6,14 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 16:49:49 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 21:33:53 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 #include "mlx.h"
 
+//this function is only for checking if there is a wierd ithem in the map >
 int	check_w(char **string)
 {
 	int	index ;
@@ -36,7 +37,7 @@ int	check_w(char **string)
 	}
 	return (0);
 }
-
+//this function stores some data about the lenght S. the Window Image Ptr...
 void	finif(t_fac *string, char **str)
 {
 	string->xx = 60;
@@ -55,7 +56,7 @@ void	finif(t_fac *string, char **str)
 	string->picb = mlx_xpm_file_to_image(string->forinit, \
 	"lay.xpm", &string->xx, &string->yy);
 }
-
+//here in this function we do make a copy of the 2d array in here so wew can use it 
 char	**copymap(char *string)
 {
 	char	**allocation;
@@ -70,7 +71,7 @@ char	**copymap(char *string)
 	allocation = stringreturn(ptr);
 	return (allocation);
 }
-
+//we do put each image in it place with this function 
 void	loopon(t_fac *func, char **string)
 {
 	func->xx = 60;
@@ -99,7 +100,42 @@ void	loopon(t_fac *func, char **string)
 	}
 }
 
+int keeeey(int key, t_fac *me)
+{
+	(void)me;
+	if(key == 53)
+		exit(0);
+	exit(0);
+}
+//in this function imtrying to find the position Player in the map so i can use it later
+void	extract_position(char **string, t_fac	*meme)
+{
+
+	meme->colom= 0;
+	meme->row= 0;
+	meme->index = 0;
+	while (meme->index <= maplenghtcheck(string))
+	{
+		while (string[meme->index][meme->increment])
+		{
+			if (string[meme->index][meme->increment] == 'P')
+			{
+				meme->row = meme->index ;
+				meme->colom = meme->increment ;
+				return ;
+			}
+			meme->increment++ ;
+		}
+			meme->increment = 0;
+			meme->index++;
+	}
+}
 int	main(void)
 {
-	evry_thing("map.txt");
+	t_fac	meme;
+	char **res ;
+	res = evry_thing("map.txt");
+	extract_position(res, &meme);
+	mlx_hook(meme.forwindow, );
+	printf("%d" , meme.row);
 }
