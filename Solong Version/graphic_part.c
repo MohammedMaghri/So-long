@@ -6,12 +6,36 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 12:18:58 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 16:49:49 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 #include "mlx.h"
+
+int	check_w(char **string)
+{
+	int	index ;
+	int	total ;
+	int	flag ;
+
+	flag = 0;
+	index = 0;
+	total = 0;
+	while (index <= maplenghtcheck(string))
+	{
+		while (string[index][total])
+		{
+			flag = weirddetection(string[index][total]);
+			if (flag == -1)
+				return (-1);
+			total++ ;
+		}
+		total = 0 ;
+		index++ ;
+	}
+	return (0);
+}
 
 void	finif(t_fac *string, char **str)
 {
@@ -77,14 +101,5 @@ void	loopon(t_fac *func, char **string)
 
 int	main(void)
 {
-	t_map	mymap;
-	t_fac	me;
-	char	**res ;
-
-	mymap.checker = 60;
-	mymap.numberofclomums = 60;
-	res = functionoepn("map.txt");
-	finif(&me, res);
-	loopon(&me, res);
-	mlx_loop(me.forinit);
+	evry_thing("map.txt");
 }

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 12:20:36 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/29 16:51:03 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ int		chekthewalsinmap(char **string);
 int		lencount(char *string);
 char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
-// char	**functionfilereader(int fd);
+int		check_w(char **string);
 int		checkhowmany(char *string);
+int		evry_thing(char *string);
 
 #endif
