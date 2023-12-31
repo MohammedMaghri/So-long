@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:45:39 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/28 17:07:33 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/30 13:25:25 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	checkthelenghtline(char **array)
 int	weirddetection(char string)
 {
 	if (string != 'C' && string != 'P' && string != 'E' && \
-	string != '1' && string != '0')
+	string != '1' && string != '0' && string != 'X')
 		return (printf("Wired Ithem Detected .. in the map ."), -1);
 	return (0);
 }

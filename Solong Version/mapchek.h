@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 21:15:59 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 02:58:13 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,18 @@ typedef struct thefunctions
 	char	*pic;
 	void	*picb;
 	void	*picc;
+	void	*picx;
 	int		x;
 	int		y;
 	int		xx;
 	int		yy;
 	char	**twod;
 	char	**tocopy;
+	int		yfor;
+	int		xfor;
+	int		indexfor;
+	char	**twodefor;
+
 }	t_fac;
 
 typedef struct mapvlidity
@@ -75,8 +81,14 @@ typedef struct moveit
 {
 	char	**doubled;
 }	t_move;
-
-int keeeey(int key, t_fac *me);
+void	finif(t_fac *string, char **str);
+void	thiskey(int key, t_fac *me, int row, int colum);
+int		check(char string);
+void	openthis(t_fac *me);
+void	put_character(t_fac *func, char **string);
+int		map_cle(int number, t_fac *copy);
+int		keeeey(int key, t_fac *me);
+int		closeprogram(int key);
 char	**putfromtoother(char **string);
 void	loopon(t_fac *func, char **string);
 char	*makestringopy(char *string);
@@ -107,6 +119,5 @@ char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
 int		check_w(char **string);
 int		checkhowmany(char *string);
-char	**evry_thing(char *string);
-
+char	**evry_thing(char *string, t_fac *me);
 #endif

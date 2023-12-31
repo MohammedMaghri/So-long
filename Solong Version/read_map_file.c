@@ -6,12 +6,13 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 21:10:14 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 03:08:43 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
+//remake this function
 char	*thisfunctionresader(char *string, int fd, int size)
 {
 	int	readsize;
@@ -54,6 +55,17 @@ char	**putfromtoother(char **string)
 	}
 	alocation[index] = NULL;
 	return (alocation);
+}
+
+int	keeeey(int key, t_fac *me)
+{
+	int	colum ;
+	int	row ;
+
+	row = player_row_position(me->twodefor);
+	colum = player_colum_position(me->twodefor);
+	thiskey(key, me, row, colum);
+	return (0);
 }
 
 char	**functionfilereader(int fd)

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 21:33:53 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 03:06:13 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	check_w(char **string)
 	}
 	return (0);
 }
+
 //this function stores some data about the lenght S. the Window Image Ptr...
 void	finif(t_fac *string, char **str)
 {
@@ -55,22 +56,26 @@ void	finif(t_fac *string, char **str)
 	"col.xpm", &string->xx, &string->yy);
 	string->picb = mlx_xpm_file_to_image(string->forinit, \
 	"lay.xpm", &string->xx, &string->yy);
+	string->picx = mlx_xpm_file_to_image(string->forinit, \
+	"mypi.xpm", &string->xx, &string->yy);
 }
-//here in this function we do make a copy of the 2d array in here so wew can use it 
-char	**copymap(char *string)
-{
-	char	**allocation;
-	char	*ptr;
-	int		size ;
-	int		file ;
 
-	size = 1000 ;
-	ptr = malloc(sizeof(char) * size + 1);
-	file = open(string, O_RDONLY);
-	thisfunctionresader(ptr, file, size);
-	allocation = stringreturn(ptr);
-	return (allocation);
+void	put_character(t_fac *func, char **string)
+{
+	if (string[func->index][func->increment] == '1')
+		mlx_put_image_to_window(func->forinit, func->forwindow, \
+		func->pic, func->xx, func->yy);
+	if (string[func->index][func->increment] == 'X')
+		mlx_put_image_to_window(func->forinit, func->forwindow, \
+		func->picb, func->xx, func->yy);
+	if (string[func->index][func->increment] == 'C')
+		mlx_put_image_to_window(func->forinit, func->forwindow, \
+		func->picc, func->xx, func->yy);
+	if (string[func->index][func->increment] == 'P')
+		mlx_put_image_to_window(func->forinit, func->forwindow, \
+		func->picx, func->xx, func->yy);
 }
+
 //we do put each image in it place with this function 
 void	loopon(t_fac *func, char **string)
 {
@@ -84,15 +89,7 @@ void	loopon(t_fac *func, char **string)
 		{
 			func->xx = func->increment * 60;
 			func->yy = func->index * 60;
-			if (string[func->index][func->increment] == '1')
-				mlx_put_image_to_window(func->forinit, func->forwindow, \
-				func->pic, func->xx, func->yy);
-			if (string[func->index][func->increment] == 'P')
-				mlx_put_image_to_window(func->forinit, func->forwindow, \
-				func->picb, func->xx, func->yy);
-			if (string[func->index][func->increment] == 'C')
-				mlx_put_image_to_window(func->forinit, func->forwindow, \
-				func->picc, func->xx, func->yy);
+			put_character(func, string);
 			func->increment++ ;
 		}
 		func->increment = 0;
@@ -100,42 +97,10 @@ void	loopon(t_fac *func, char **string)
 	}
 }
 
-int keeeey(int key, t_fac *me)
-{
-	(void)me;
-	if(key == 53)
-		exit(0);
-	exit(0);
-}
-//in this function imtrying to find the position Player in the map so i can use it later
-void	extract_position(char **string, t_fac	*meme)
-{
-
-	meme->colom= 0;
-	meme->row= 0;
-	meme->index = 0;
-	while (meme->index <= maplenghtcheck(string))
-	{
-		while (string[meme->index][meme->increment])
-		{
-			if (string[meme->index][meme->increment] == 'P')
-			{
-				meme->row = meme->index ;
-				meme->colom = meme->increment ;
-				return ;
-			}
-			meme->increment++ ;
-		}
-			meme->increment = 0;
-			meme->index++;
-	}
-}
 int	main(void)
 {
 	t_fac	meme;
-	char **res ;
-	res = evry_thing("map.txt");
-	extract_position(res, &meme);
-	mlx_hook(meme.forwindow, );
-	printf("%d" , meme.row);
+	char	**res ;
+
+	res = evry_thing("map.txt", &meme);
 }

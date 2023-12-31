@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/29 21:19:01 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 03:07:12 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ int	player_row_position(char **string)
 	return (0);
 }
 
-char **evry_thing(char *string)
+char	**evry_thing(char *string, t_fac *me)
 {
 	t_map	mymap;
-	t_fac	me;
 
 	mymap.twode = functionoepn(string);
+	me->twodefor = putfromtoother(mymap.twode);
 	mymap.checker = check_w(mymap.twode);
 	if (mymap.checker == -1)
 		return (NULL);
-	finif(&me, mymap.twode);
-	mlx_hook(me.forwindow, 53, 0, keeeey, &me);
-	loopon(&me, mymap.twode);
-	// mlx_loop(me.forinit);
+	finif(me, mymap.twode);
+	loopon(me, mymap.twode);
+	mlx_hook(me->forwindow, 2, 0, keeeey, me);
+	mlx_loop(me->forinit);
 	return (mymap.twode);
 }
