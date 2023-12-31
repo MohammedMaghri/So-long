@@ -11,3 +11,4 @@ up in C programming, use basic algorithms, do some information research, and so 
 
 
 <img width="2554" alt="Screen Shot 2023-12-31 at 3 21 19 AM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/46b3180c-d942-4c75-b799-2ca52c3a90b8">
+<img width="2554" alt="Screen Shot 2023-12-31 at 3 23 29 AM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/08e20a08-e442-4c31-9fdb-d5da029417db">
