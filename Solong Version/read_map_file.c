@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 03:08:43 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 16:44:58 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	keeeey(int key, t_fac *me)
 	int	colum ;
 	int	row ;
 
+	look_for(me, me->twodefor);
+	printf("| [%d] [%d] |\n", me->monster_row, me->monster_colum);
 	row = player_row_position(me->twodefor);
 	colum = player_colum_position(me->twodefor);
 	thiskey(key, me, row, colum);

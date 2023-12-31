@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 02:57:28 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 03:05:01 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 15:34:41 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,36 +37,48 @@ void	openthis(t_fac *me)
 
 int	check(char string)
 {
-	if (string != '1' && string != 'X')
+	if (string != '1' && string != 'E')
 		return (-1);
 	return (0);
 }
 
-void	thiskey(int key, t_fac *me, int row, int colum)
+int	destro(char string, t_fac *this)
 {
-	if (key == 13 && check(me->twodefor[row - 1][colum]) == -1)
+	static int	flag ;
+
+	if (string == 'C')
 	{
-		me->twodefor[row][colum] = '0';
-		row--;
-		me->twodefor[row][colum] = 'P';
+		flag += 1;
 	}
-	else if (key == 1 && check(me->twodefor[row + 1][colum]) == -1)
+	if (string == 'X')
 	{
-		me->twodefor[row][colum] = '0';
-		row++;
-		me->twodefor[row][colum] = 'P';
+		mlx_clear_window(this->forinit, this->forwindow);
+		mlx_destroy_window(this->forinit, this->forwindow);
+		free(this->twodefor);
+		exit(0);
 	}
-	if (key == 2 && check(me->twodefor[row][colum + 1]) == -1)
+	return (flag);
+}
+
+int	count_col(char **string)
+{
+	int	index ;
+	int	total ;
+	int	flag ;
+
+	flag = 0;
+	index = 0 ;
+	total = 0;
+	while (index <= maplenghtcheck(string))
 	{
-		me->twodefor[row][colum] = '0';
-		colum++;
-		me->twodefor[row][colum] = 'P';
+		while (string[index][total])
+		{
+			if (string[index][total] == 'C')
+				flag++ ;
+			total++ ;
+		}
+		total = 0;
+		index++ ;
 	}
-	else if (key == 0 && check(me->twodefor[row][colum - 1]) == -1)
-	{
-		me->twodefor[row][colum] = '0';
-		colum--;
-		me->twodefor[row][colum] = 'P';
-	}
-	openthis(me);
+	return (flag);
 }

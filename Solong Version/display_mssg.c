@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:45:39 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/30 13:25:25 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 12:16:44 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	checkvalidity(int player, int collec, int out)
 	if (player != 1)
 		return (printf("The map is Not Valid Player's must  be one\n"), -1);
 	if (collec < 1)
-		return (printf("The map is Not Valid Collectibles are less then one\n"\
+		return (printf("The map is Not Valid Collectibles are less than one\n"\
 			), -1);
 	if (out != 1)
 		return (printf("The map is Not Valid It must be one Exit !\n"), -1);

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 02:58:13 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 16:13:50 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 
 typedef struct thefunctions
 {
+	int		monster_row;
+	int		monster_colum;
+	int		flag;
 	int		colom;
 	int		row;
 	int		index;
@@ -33,6 +36,7 @@ typedef struct thefunctions
 	void	*picb;
 	void	*picc;
 	void	*picx;
+	void	*picz;
 	int		x;
 	int		y;
 	int		xx;
@@ -43,7 +47,7 @@ typedef struct thefunctions
 	int		xfor;
 	int		indexfor;
 	char	**twodefor;
-
+	int		total;
 }	t_fac;
 
 typedef struct mapvlidity
@@ -81,8 +85,12 @@ typedef struct moveit
 {
 	char	**doubled;
 }	t_move;
-void	finif(t_fac *string, char **str);
+void	look_for(t_fac *this, char **string);
+int		count_col(char **string);
 void	thiskey(int key, t_fac *me, int row, int colum);
+void	thiskey_complete(int key, t_fac *me, int row, int colum);
+int		destro(char string, t_fac *this);
+void	finif(t_fac *string, char **str);
 int		check(char string);
 void	openthis(t_fac *me);
 void	put_character(t_fac *func, char **string);

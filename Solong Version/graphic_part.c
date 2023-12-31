@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 03:06:13 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 16:02:45 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	finif(t_fac *string, char **str)
 	"lay.xpm", &string->xx, &string->yy);
 	string->picx = mlx_xpm_file_to_image(string->forinit, \
 	"mypi.xpm", &string->xx, &string->yy);
+	string->picz = mlx_xpm_file_to_image(string->forinit, \
+	"dor.xpm", &string->xx, &string->yy);
 }
 
 void	put_character(t_fac *func, char **string)
@@ -74,9 +76,12 @@ void	put_character(t_fac *func, char **string)
 	if (string[func->index][func->increment] == 'P')
 		mlx_put_image_to_window(func->forinit, func->forwindow, \
 		func->picx, func->xx, func->yy);
+	if (string[func->index][func->increment] == 'E')
+		mlx_put_image_to_window(func->forinit, func->forwindow, \
+		func->picz, func->xx, func->yy);
 }
 
-//we do put each image in it place with this function 
+//we do put each image in it place with this function
 void	loopon(t_fac *func, char **string)
 {
 	func->xx = 60;

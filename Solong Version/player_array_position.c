@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 03:07:12 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 16:44:25 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,39 @@ int	player_row_position(char **string)
 	return (0);
 }
 
+void	look_for(t_fac *this, char **string)
+{
+	int	index ;
+	int	flag ;
+	int	total ;
+
+	index = 0 ;
+	flag = 0;
+	total = 0;
+	while (total <= maplenghtcheck(string))
+	{
+		while (string[total][flag])
+		{
+			if (string[total][flag] == 'X')
+			{
+				this->monster_colum = flag ;
+				this->monster_row = total ;
+				return ;
+			}
+			flag++ ;
+		}
+		flag = 0;
+		total++ ;
+	}
+}
+
 char	**evry_thing(char *string, t_fac *me)
 {
 	t_map	mymap;
 
 	mymap.twode = functionoepn(string);
 	me->twodefor = putfromtoother(mymap.twode);
+	me->total = count_col(me->twodefor);
 	mymap.checker = check_w(mymap.twode);
 	if (mymap.checker == -1)
 		return (NULL);
