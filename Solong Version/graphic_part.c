@@ -6,37 +6,12 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:44:20 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 20:30:51 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 #include "mlx.h"
-
-//this function is only for checking if there is a wierd ithem in the map >
-// int	check_wierd_ithem(char **string)
-// {
-// 	int	index ;
-// 	int	total ;
-// 	int	flag ;
-
-// 	flag = 0;
-// 	index = 0;
-// 	total = 0;
-// 	while (index <= maplenghtcheck(string))
-// 	{
-// 		while (string[index][total])
-// 		{
-// 			flag = weirddetection(string[index][total]);
-// 			if (flag == -1)
-// 				return (-1);
-// 			total++ ;
-// 		}
-// 		total = 0 ;
-// 		index++ ;
-// 	}
-// 	return (0);
-// }
 
 //this function stores some data about the lenght S. the Window Image Ptr...
 void	fill_struct(t_fac *string, char **str)
@@ -102,10 +77,11 @@ void	fill_window_map(t_fac *func, char **string)
 	}
 }
 
-int	main(void)
+int	main(int ac, char **argv)
 {
 	t_fac	meme;
-	char	**res ;
 
-	res = merge_functions_checks("map.txt", &meme);
+	if (ac != 2)
+		return (printf("No Valid map to Check"),0);
+	merge_functions_checks(argv[1], &meme);
 }

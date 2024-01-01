@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:59:17 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 20:35:55 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 	t_map	mymap;
 
 	mymap.twode = get_array(string);
+	// me->col = count_collectibles(mymap.twode);
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);
 	mymap.yy = player_colum_position(mymap.twode);
@@ -94,7 +95,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 	if (mymap.checker == -1)
 		return (NULL);
 	fill_struct(me, mymap.twode);
-	fill_window_map(me, mymap.twode);
+	fill_window_map(me, me->twodefor);
 	mlx_hook(me->forwindow, 2, 0, merge_for_moving_player, me);
 	mlx_loop(me->forinit);
 	return (me->twodefor);

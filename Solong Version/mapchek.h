@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:53:09 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 20:33:47 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct thefunctions
 	int		indexfor;
 	char	**twodefor;
 	int		total;
+	int		col;
 }	t_fac;
 
 typedef struct mapvlidity
@@ -86,7 +87,7 @@ typedef struct moveit
 	char	**doubled;
 }	t_move;
 // int charracter_put(t_fac *poi);
-void function_use(t_fac *me, char **string);
+void	function_use(t_fac *me, char **string);
 void	get_monster_position(t_fac *this, char **string);
 int		count_collectibles(char **string);
 void	move_player(int key, t_fac *me, int row, int colum);
@@ -109,7 +110,7 @@ char	**get_array(char *string);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
 int		check_double_items(char **string);
-int	mergecheking(char **string,int numbercolum, int filed);
+int		mergecheking(char **string,int numbercolum, int filed);
 void	trackleftside(char **string, int x, int y);
 void	printmapposition(char **string);
 int		checkrows(char *string);
