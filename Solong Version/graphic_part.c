@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 20:30:51 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 22:48:19 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	fill_window_map(t_fac *func, char **string)
 		func->index++ ;
 	}
 }
+
 
 int	main(int ac, char **argv)
 {

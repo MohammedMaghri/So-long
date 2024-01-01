@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 20:35:55 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 22:36:06 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ char	**merge_functions_checks(char *string, t_fac *me)
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);
 	mymap.yy = player_colum_position(mymap.twode);
+	mymap.i =  weirddetection(mymap.twode);
+	if (mymap.i == -1)
+		return (NULL);
 	mymap.checker = mergecheking(mymap.twode, mymap.xx, mymap.yy);
 	if (mymap.checker == -1)
 		return (NULL);
