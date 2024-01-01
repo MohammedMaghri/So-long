@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:07:02 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 19:53:09 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,15 @@ char	**return_array_from_text(int fd);
 char	**get_array(char *string);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
-int		checktheitems(char **string);
-int		mergecheking(char **string, int numbercolum, int filed);
+int		check_double_items(char **string);
+int	mergecheking(char **string,int numbercolum, int filed);
 void	trackleftside(char **string, int x, int y);
 void	printmapposition(char **string);
 int		checkrows(char *string);
 void	backtrack(char **string, int row, int colum);
 int		player_row_position(char **string);
 int		player_colum_position(char **string);
-int		weirddetection(char string);
+int		weirddetection(char **string);
 int		maplenghtcheck(char **string);
 int		checkthelenghtline(char **array);
 int		checksidesofmap(char **string);
@@ -127,6 +127,5 @@ int		lencount(char *string);
 char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
 int		check_wierd_ithem(char **string);
-int		checkhowmany(char *string);
 char	**merge_functions_checks(char *string, t_fac *me);
 #endif

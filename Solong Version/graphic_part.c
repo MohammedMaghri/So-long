@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:52:02 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 19:44:20 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 #include "mlx.h"
 
 //this function is only for checking if there is a wierd ithem in the map >
-int	check_wierd_ithem(char **string)
-{
-	int	index ;
-	int	total ;
-	int	flag ;
+// int	check_wierd_ithem(char **string)
+// {
+// 	int	index ;
+// 	int	total ;
+// 	int	flag ;
 
-	flag = 0;
-	index = 0;
-	total = 0;
-	while (index <= maplenghtcheck(string))
-	{
-		while (string[index][total])
-		{
-			flag = weirddetection(string[index][total]);
-			if (flag == -1)
-				return (-1);
-			total++ ;
-		}
-		total = 0 ;
-		index++ ;
-	}
-	return (0);
-}
+// 	flag = 0;
+// 	index = 0;
+// 	total = 0;
+// 	while (index <= maplenghtcheck(string))
+// 	{
+// 		while (string[index][total])
+// 		{
+// 			flag = weirddetection(string[index][total]);
+// 			if (flag == -1)
+// 				return (-1);
+// 			total++ ;
+// 		}
+// 		total = 0 ;
+// 		index++ ;
+// 	}
+// 	return (0);
+// }
 
 //this function stores some data about the lenght S. the Window Image Ptr...
 void	fill_struct(t_fac *string, char **str)
@@ -46,7 +46,7 @@ void	fill_struct(t_fac *string, char **str)
 	string->index = 0;
 	string->increment = 0;
 	string->forinit = mlx_init();
-	string->y = (maplenghtcheck(str));
+	string->y = maplenghtcheck(str);
 	string->x = lencount(str[0]);
 	 string->forwindow = mlx_new_window(string->forinit, \
 	 (string->x * 60), (string->y * 60), "window");
@@ -88,7 +88,7 @@ void	fill_window_map(t_fac *func, char **string)
 	func->yy = 60 ;
 	func->index = 0;
 	func->increment = 0;
-	while (func->index <= maplenghtcheck(string))
+	while (func->index < maplenghtcheck(string))
 	{
 		while (string[func->index][func->increment])
 		{

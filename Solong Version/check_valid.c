@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:16:46 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 19:17:14 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,23 @@ int	maplenghtcheck(char **string)
 	{
 		maplenght.index++ ;
 	}
-	maplenght.index--;
 	return (maplenght.index);
 }
 
 // function that counts items so we passe it to the function
-int	checktheitems(char **string)
+int	check_double_items(char **string)
 {
 	t_map	items ;
 
-	items.index = 0;
+	items.index = 1;
 	items.i = 0;
 	items.runout = 0;
 	items.collectiles = 0;
 	items.player = 0;
-	while (items.index++ <= maplenghtcheck(string))
+	while (items.index < maplenghtcheck(string))
 	{
 		while (string[items.index][items.i])
 		{
-			weirddetection(string[items.index][items.i]);
 			if (string[items.index][items.i] == 'P')
 				items.player += 1;
 			if (string[items.index][items.i] == 'C')
@@ -50,6 +48,7 @@ int	checktheitems(char **string)
 			items.i++ ;
 		}
 		items.i = 0;
+		items.index++ ;
 	}
 	if (checkvalidity(items.player, items.collectiles, items.runout) == -1)
 		return (-1);
@@ -64,7 +63,7 @@ int	checkwalsinmap(char **string)
 	t_map	square;
 
 	square.index = 0;
-	square.totallenghtline = maplenghtcheck(string);
+	square.totallenghtline = maplenghtcheck(string) - 1;
 	if (checkthelenghtline(string) == -1)
 		return (-1);
 	if (lencount(string[0]) == square.totallenghtline)
@@ -76,7 +75,6 @@ int	checkwalsinmap(char **string)
 				, -1);
 		square.index++ ;
 	}
-	square.res = checksidesofmap(string);
 	square.index = 0;
 	while (string[square.totallenghtline][square.index])
 	{
@@ -96,7 +94,7 @@ int	maplastcheck(char **string)
 	lastcheck.index = 0;
 	lastcheck.totallenghtline = maplenghtcheck(string);
 	res = 0;
-	while (lastcheck.index <= maplenghtcheck(string))
+	while (lastcheck.index < maplenghtcheck(string))
 	{
 		res = checkrows(string[lastcheck.index]);
 		if (res == -1)

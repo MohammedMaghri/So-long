@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:38:42 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 19:59:17 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	player_colum_position(char **string)
 
 	columposition.i = 0;
 	columposition.checker = 0;
-	columposition.numberofclomums = maplenghtcheck(string);
-	while (columposition.checker <= columposition.numberofclomums)
+	columposition.numberofclomums = maplenghtcheck(string) - 1;
+	while (columposition.checker < columposition.numberofclomums)
 	{
 		while (string[columposition.checker][columposition.i])
 		{
@@ -42,7 +42,7 @@ int	player_row_position(char **string)
 	position.i = 0;
 	position.checker = 0;
 	position.numberofclomums = maplenghtcheck(string);
-	while (position.checker <= position.numberofclomums)
+	while (position.checker < position.numberofclomums)
 	{
 		while (string[position.checker][position.i])
 		{
@@ -65,7 +65,7 @@ void	get_monster_position(t_fac *this, char **string)
 	index = 0 ;
 	flag = 0;
 	total = 0;
-	while (total <= maplenghtcheck(string))
+	while (total < maplenghtcheck(string))
 	{
 		while (string[total][flag])
 		{
@@ -88,12 +88,14 @@ char	**merge_functions_checks(char *string, t_fac *me)
 
 	mymap.twode = get_array(string);
 	me->twodefor = copy_of_array(mymap.twode);
-	mymap.checker = check_wierd_ithem(mymap.twode);
+	mymap.xx = player_row_position(mymap.twode);
+	mymap.yy = player_colum_position(mymap.twode);
+	mymap.checker = mergecheking(mymap.twode, mymap.xx, mymap.yy);
 	if (mymap.checker == -1)
 		return (NULL);
 	fill_struct(me, mymap.twode);
 	fill_window_map(me, mymap.twode);
 	mlx_hook(me->forwindow, 2, 0, merge_for_moving_player, me);
 	mlx_loop(me->forinit);
-	return (mymap.twode);
+	return (me->twodefor);
 }

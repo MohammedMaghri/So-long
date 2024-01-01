@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 20:56:53 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 19:59:37 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,16 @@ int	checkrows(char *string)
 }
 
 //the function that checks all the rules of the map toghter
-int	mergecheking(char **string, int numbercolum, int filed)
+int	mergecheking(char **string,int numbercolum, int filed)
 {
 	t_map	merge;
-
 	merge.res = checkwalsinmap(string);
 	if (merge.res == -1)
 		return (-1);
 	merge.i =  checksidesofmap(string);
 	if (merge.i == -1)
 		return (-1);
-	merge.index = checktheitems(string);
+	merge.index = check_double_items(string);
 	if (merge.index == -1)
 		return (-1);
 	backtrack(string, numbercolum, filed);
@@ -58,7 +57,7 @@ void	printmapposition(char **string)
 
 	printmappostion.index = 0;
 	printmappostion.linelenght = maplenghtcheck(string);
-	while (printmappostion.index <= printmappostion.linelenght)
+	while (printmappostion.index < printmappostion.linelenght)
 	{
 		printf("%s\n", string[printmappostion.index]);
 		printmappostion.index++ ;
@@ -73,7 +72,7 @@ void	backtrack(char **string, int x, int y)
 	t_map		backtrace;
 
 	string[x][y] = 'F';
-	backtrace.linelenght = maplenghtcheck(string);
+	backtrace.linelenght = maplenghtcheck(string) - 1;
 	if ((y - 1) >= 0 && string[x][y - 1] \
 	!= '1' && string[x][y - 1] != 'F')
 		backtrack(string, x, y - 1);

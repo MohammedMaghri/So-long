@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:48:41 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 18:43:52 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ char	**copy_of_array(char **string)
 		printf("|%s| \n \n" , alocation[index]);
 		index++ ;
 	}
-	printf ("%d" , index);
 	alocation[index] = NULL;
 	printmapposition(alocation);
 	return (alocation);
