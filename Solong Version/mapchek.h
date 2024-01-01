@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 16:13:50 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 17:07:02 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,26 +85,27 @@ typedef struct moveit
 {
 	char	**doubled;
 }	t_move;
-void	look_for(t_fac *this, char **string);
-int		count_col(char **string);
-void	thiskey(int key, t_fac *me, int row, int colum);
+// int charracter_put(t_fac *poi);
+void function_use(t_fac *me, char **string);
+void	get_monster_position(t_fac *this, char **string);
+int		count_collectibles(char **string);
+void	move_player(int key, t_fac *me, int row, int colum);
 void	thiskey_complete(int key, t_fac *me, int row, int colum);
 int		destro(char string, t_fac *this);
-void	finif(t_fac *string, char **str);
 int		check(char string);
 void	openthis(t_fac *me);
 void	put_character(t_fac *func, char **string);
 int		map_cle(int number, t_fac *copy);
-int		keeeey(int key, t_fac *me);
+int		merge_for_moving_player(int key, t_fac *me);
 int		closeprogram(int key);
-char	**putfromtoother(char **string);
-void	loopon(t_fac *func, char **string);
-char	*makestringopy(char *string);
+char	**copy_of_array(char **string);
+void	fill_window_map(t_fac *func, char **string);
+char	*copy_of_string(char *string);
 char	**copymap(char *string);
 char	*thisfunctionresader(char *string, int fd, int size);
-void	finif(t_fac *string, char **str);
-char	**functionfilereader(int fd);
-char	**functionoepn(char *string);
+void	fill_struct(t_fac *string, char **str);
+char	**return_array_from_text(int fd);
+char	**get_array(char *string);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
 int		checktheitems(char **string);
@@ -125,7 +126,7 @@ int		chekthewalsinmap(char **string);
 int		lencount(char *string);
 char	**stringreturn(char *string);
 int		checkvalidmap(char *string);
-int		check_w(char **string);
+int		check_wierd_ithem(char **string);
 int		checkhowmany(char *string);
-char	**evry_thing(char *string, t_fac *me);
+char	**merge_functions_checks(char *string, t_fac *me);
 #endif

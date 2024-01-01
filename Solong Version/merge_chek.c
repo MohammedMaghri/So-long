@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 02:53:05 by mmaghri          ###   ########.fr       */
+/*   Updated: 2023/12/31 20:56:53 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int	mergecheking(char **string, int numbercolum, int filed)
 
 	merge.res = checkwalsinmap(string);
 	if (merge.res == -1)
+		return (-1);
+	merge.i =  checksidesofmap(string);
+	if (merge.i == -1)
 		return (-1);
 	merge.index = checktheitems(string);
 	if (merge.index == -1)

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/30 23:03:55 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 17:16:46 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	maplenghtcheck(char **string)
 	{
 		maplenght.index++ ;
 	}
-	return (maplenght.index - 1);
+	maplenght.index--;
+	return (maplenght.index);
 }
 
 // function that counts items so we passe it to the function
@@ -35,7 +36,7 @@ int	checktheitems(char **string)
 	items.runout = 0;
 	items.collectiles = 0;
 	items.player = 0;
-	while (items.index++ < maplenghtcheck(string))
+	while (items.index++ <= maplenghtcheck(string))
 	{
 		while (string[items.index][items.i])
 		{
@@ -95,7 +96,7 @@ int	maplastcheck(char **string)
 	lastcheck.index = 0;
 	lastcheck.totallenghtline = maplenghtcheck(string);
 	res = 0;
-	while (lastcheck.index < maplenghtcheck(string))
+	while (lastcheck.index <= maplenghtcheck(string))
 	{
 		res = checkrows(string[lastcheck.index]);
 		if (res == -1)

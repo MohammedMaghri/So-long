@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2023/12/31 16:44:58 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/01 17:48:41 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,66 +39,59 @@ char	*thisfunctionresader(char *string, int fd, int size)
 	return (string);
 }
 
-char	**putfromtoother(char **string)
+char	**copy_of_array(char **string)
 {
 	int		index ;
 	int		total;
 	char	**alocation;
 
 	index = 0;
-	total = maplenghtcheck(string);
-	alocation = malloc(sizeof(char *) * (total) + 1);
-	while (index <= maplenghtcheck(string))
+	total = maplenghtcheck(string) + 1;
+	alocation = malloc(sizeof(char *) * (total));
+	while (index < maplenghtcheck(string))
 	{
-		alocation[index] = makestringopy(string[index]);
+		alocation[index] = copy_of_string(string[index]);
+		printf("|%s| \n \n" , alocation[index]);
 		index++ ;
 	}
+	printf ("%d" , index);
 	alocation[index] = NULL;
+	printmapposition(alocation);
 	return (alocation);
 }
 
-int	keeeey(int key, t_fac *me)
+int	merge_for_moving_player(int key, t_fac *me)
 {
 	int	colum ;
 	int	row ;
 
-	look_for(me, me->twodefor);
-	printf("| [%d] [%d] |\n", me->monster_row, me->monster_colum);
+	get_monster_position(me, me->twodefor);
 	row = player_row_position(me->twodefor);
 	colum = player_colum_position(me->twodefor);
-	thiskey(key, me, row, colum);
+	move_player(key, me, row, colum);
 	return (0);
 }
 
-char	**functionfilereader(int fd)
+char	**return_array_from_text(int fd)
 {
-	t_map	filereader;
 	int		size;
 	char	*thistext;
 	char	**stringarray;
-	char	**res;
 
-	size = 10000;
+	size = 500000;
 	if (fd < 0)
 		return (0);
-	thistext = malloc(sizeof(char) * size + 1);
+	thistext = malloc(sizeof(char) * (size + 1));
 	thisfunctionresader(thistext, fd, size);
 	stringarray = stringreturn(thistext);
-	res = putfromtoother(stringarray);
-	filereader.numberofclomums = player_row_position(stringarray);
-	filereader.colum = player_colum_position(stringarray);
-	filereader.checker = mergecheking(stringarray, \
-	filereader.numberofclomums, filereader.colum);
-	if (filereader.checker == -1)
-		return (exit(1), NULL);
-	return (res);
+	return (stringarray);
 }
 
-char	**functionoepn(char *string)
+char	**get_array(char *string)
 {
 	t_map	putmap;
 
 	putmap.filed = open(string, O_RDONLY);
-	putmap.twode = functionfilereader(putmap.filed);
+	putmap.twode = return_array_from_text(putmap.filed);
 	return (putmap.twode);
 }
