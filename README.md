@@ -9,6 +9,6 @@ and deal with keyboard and mouse events.
 The other goals are similar to every other goal for this first year: being rigorous, level
 up in C programming, use basic algorithms, do some information research, and so forth.
 
-
+<img width="2554" alt="Screen Shot 2024-01-02 at 8 25 16 PM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/e62e6584-ab66-4065-bd0b-c42289c05e88">
 <img width="2554" alt="Screen Shot 2023-12-31 at 3 21 19 AM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/46b3180c-d942-4c75-b799-2ca52c3a90b8">
 <img width="2554" alt="Screen Shot 2023-12-31 at 3 23 29 AM" src="https://github.com/MohammedMaghri/So-long/assets/135870538/08e20a08-e442-4c31-9fdb-d5da029417db">
