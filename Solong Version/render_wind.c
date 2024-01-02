@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 02:57:28 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 18:52:46 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:43:35 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	count_collectibles(char **string)
 	flag = 0;
 	index = 0 ;
 	total = 0;
-	while (index <= maplenghtcheck(string))
+	while (index < maplenghtcheck(string))
 	{
 		while (string[index][total])
 		{

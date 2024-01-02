@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 20:33:47 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:36:57 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct thefunctions
 	void	*picc;
 	void	*picx;
 	void	*picz;
+	void	*picza;
 	int		x;
 	int		y;
 	int		xx;
@@ -49,6 +50,7 @@ typedef struct thefunctions
 	char	**twodefor;
 	int		total;
 	int		col;
+	int		countcol;
 }	t_fac;
 
 typedef struct mapvlidity
@@ -87,7 +89,7 @@ typedef struct moveit
 	char	**doubled;
 }	t_move;
 // int charracter_put(t_fac *poi);
-void	function_use(t_fac *me, char **string);
+void	moster_move(t_fac *me, char **string);
 void	get_monster_position(t_fac *this, char **string);
 int		count_collectibles(char **string);
 void	move_player(int key, t_fac *me, int row, int colum);

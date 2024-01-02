@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 22:36:06 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:41:33 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 	t_map	mymap;
 
 	mymap.twode = get_array(string);
-	// me->col = count_collectibles(mymap.twode);
+	me->col = count_collectibles(mymap.twode);
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);
 	mymap.yy = player_colum_position(mymap.twode);

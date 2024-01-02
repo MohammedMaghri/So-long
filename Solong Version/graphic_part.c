@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 22:48:19 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 12:52:41 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	put_character(t_fac *func, char **string)
 	if (string[func->index][func->increment] == 'E')
 		mlx_put_image_to_window(func->forinit, func->forwindow, \
 		func->picz, func->xx, func->yy);
+	if (func->countcol == func->col)
+		func->picz = mlx_xpm_file_to_image(func->forinit, "dorop.xpm", &func->xx, &func->yy);
 }
 
 //we do put each image in it place with this function
@@ -83,6 +85,6 @@ int	main(int ac, char **argv)
 	t_fac	meme;
 
 	if (ac != 2)
-		return (printf("No Valid map to Check"),0);
+		return (printf("No Valid map to Check"), 0);
 	merge_functions_checks(argv[1], &meme);
 }
