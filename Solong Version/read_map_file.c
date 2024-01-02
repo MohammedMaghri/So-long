@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 12:57:01 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 16:23:06 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ int	merge_for_moving_player(int key, t_fac *me)
 {
 	int	colum ;
 	int	row ;
-
+	if (key == 53 || key == 12)
+		exit(0);
 	get_monster_position(me, me->twodefor);
 	row = player_row_position(me->twodefor);
 	colum = player_colum_position(me->twodefor);
@@ -89,6 +90,11 @@ char	**get_array(char *string)
 	t_map	putmap;
 
 	putmap.filed = open(string, O_RDONLY);
+	if (putmap.filed == -1)
+	{
+		printf("No File >>> !");
+		exit(0);
+	}
 	putmap.twode = return_array_from_text(putmap.filed);
 	return (putmap.twode);
 }

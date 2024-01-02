@@ -1,5 +1,5 @@
 NAME = solong.a
-SRC = graphic_part.c move_player.c render_wind.c read_map_file.c read_string_to_array.c check_valid.c merge_chek.c display_mssg.c player_array_position.c
+SRC = graphic_part.c number_to_str.c move_player.c render_wind.c read_map_file.c read_string_to_array.c check_valid.c merge_chek.c display_mssg.c player_array_position.c
 OBJS = $(SRC:.c=.o)
 var = so_long 
 CC = cc 

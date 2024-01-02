@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 17:38:15 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 15:51:02 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,6 @@ char	**stringreturn(char *string)
 	turn.twode[turn.i] = copy_of_string(string);
 	turn.i++ ;
 	turn.twode[turn.i] = NULL ;
+	free(string);
 	return (turn.twode);
 }

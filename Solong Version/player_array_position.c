@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 12:41:33 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 20:23:06 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,19 @@ void	get_monster_position(t_fac *this, char **string)
 	}
 }
 
+int		closeprogram(int key)
+{
+	(void)key ;
+	exit(0);
+	return (0);
+}
 char	**merge_functions_checks(char *string, t_fac *me)
 {
 	t_map	mymap;
 
 	mymap.twode = get_array(string);
+	if (maplenghtcheck(mymap.twode) > 24 || (lencount(mymap.twode[0]) > 43))
+		return (printf("Mac Display can't handle this map ... !"), NULL);
 	me->col = count_collectibles(mymap.twode);
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);
@@ -99,6 +107,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 		return (NULL);
 	fill_struct(me, mymap.twode);
 	fill_window_map(me, me->twodefor);
+	mlx_hook(me->forwindow, 17, 0, closeprogram, me);
 	mlx_hook(me->forwindow, 2, 0, merge_for_moving_player, me);
 	mlx_loop(me->forinit);
 	return (me->twodefor);

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 12:52:41 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 20:09:11 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	put_character(t_fac *func, char **string)
 	if (string[func->index][func->increment] == 'E')
 		mlx_put_image_to_window(func->forinit, func->forwindow, \
 		func->picz, func->xx, func->yy);
-	if (func->countcol == func->col)
+	if (func->worck == 0)
 		func->picz = mlx_xpm_file_to_image(func->forinit, "dorop.xpm", &func->xx, &func->yy);
 }
 
@@ -65,6 +65,7 @@ void	fill_window_map(t_fac *func, char **string)
 	func->yy = 60 ;
 	func->index = 0;
 	func->increment = 0;
+
 	while (func->index < maplenghtcheck(string))
 	{
 		while (string[func->index][func->increment])
@@ -79,12 +80,29 @@ void	fill_window_map(t_fac *func, char **string)
 	}
 }
 
+int checkfile_name(char *string)
+{
+	int total = lencount(string);
 
+	if (string[total - 1] != 'r')
+		return (printf("File name is not Valid !!"), -1);
+	if (string[total - 2] != 'e')
+		return (printf("File name is not Valid !!"), -1);
+	if (string[total - 3] != 'b')
+		return (printf("File name is not Valid !!"), -1);
+	if (string[total - 4] != '.')
+		return (printf("File name is not Valid!!"), -1);
+	return (0);
+}
 int	main(int ac, char **argv)
 {
 	t_fac	meme;
+	int		res ;
 
 	if (ac != 2)
-		return (printf("No Valid map to Check"), 0);
+		return (printf("\n No Valid map to Check .... !! \n\n"), 0);
+	res = checkfile_name(argv[1]);
+	if (res == -1)
+		return (0);
 	merge_functions_checks(argv[1], &meme);
 }

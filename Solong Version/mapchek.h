@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 12:36:57 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 19:53:21 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 typedef struct thefunctions
 {
+	int		worck;
+	int		movment;
 	int		monster_row;
 	int		monster_colum;
 	int		flag;
@@ -51,6 +53,8 @@ typedef struct thefunctions
 	int		total;
 	int		col;
 	int		countcol;
+	int		countmovment;
+	char	*changedata;
 }	t_fac;
 
 typedef struct mapvlidity
@@ -88,8 +92,13 @@ typedef struct moveit
 {
 	char	**doubled;
 }	t_move;
-// int charracter_put(t_fac *poi);
-void	moster_move(t_fac *me, char **string);
+
+
+void	paste(char string);
+int		count_number_len(int number);
+void	fill(int number, int lenght, int index, char *string);
+char	*change_data_type(int number);
+int 	monster_move(int key, t_fac *me);
 void	get_monster_position(t_fac *this, char **string);
 int		count_collectibles(char **string);
 void	move_player(int key, t_fac *me, int row, int colum);

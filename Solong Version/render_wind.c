@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 02:57:28 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 12:43:35 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 20:10:25 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ char	**copymap(char *string)
 
 void	openthis(t_fac *me)
 {
+	static int movment;
+
+	movment++ ;
 	mlx_clear_window(me->forinit, me->forwindow);
+	me->changedata = change_data_type(me->countmovment);
+	mlx_string_put(me->forinit, me->forwindow, 60, 60, 0xFFD700, me->changedata);
 	fill_window_map(me, me->twodefor);
 }
 
@@ -59,7 +64,6 @@ int	destro(char string, t_fac *this)
 	}
 	return (flag);
 }
-
 int	count_collectibles(char **string)
 {
 	int	index ;
