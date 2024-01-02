@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 14:34:18 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 20:08:33 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/02 20:38:57 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ int count(char string)
 
 void	move_player(int key, t_fac *me, int row, int colum)
 {
-	// mlx_string_put(me->forinit, me->forwindow, 60, 60, 0xFFD700, me->changedata);
-	if ((key == 13 || key == 126) && me->twodefor[row - 1][colum] != '1')
+	if ( (key == 13 || key == 126) && me->twodefor[row - 1][colum] == 'E' && me->worck == 0)
+		exit(0);
+	if ((key == 13 || key == 126) && \
+		check(me->twodefor[row - 1][colum]) == -1)
 	{
 		me->countmovment++ ;
 		monster_move(key , me);
 		if (me->twodefor[row][colum] == 'X')
 			exit(0);
 		me->twodefor[row][colum] = '0';
-		if (me->twodefor[row - 1][colum] == 'E' && me->worck == 0)
-			exit(0);
 		me->flag = destro(me->twodefor[row - 1][colum], me);
 		me->twodefor[--row][colum] = 'P';
 	}
