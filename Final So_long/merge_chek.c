@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 19:39:38 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 21:40:40 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,25 @@ int	movecoin(t_fac *me)
 {
 	static int	flag ;
 
-	flag = 0;
+	(void)me ;
 	if (me->worck == 0)
 		return (0);
+	printf("in");
 	me->picc = mlx_xpm_file_to_image(me->forinit, \
-	"col.xpm", &me->xx, &me->yy);
+		"col.xpm", &me->xx, &me->yy);
 	openthis(me);
 	me->picc = mlx_xpm_file_to_image(me->forinit, \
-	"col.xpm", &me->xx, &me->yy);
+		"col.xpm", &me->xx, &me->yy);
 	openthis(me);
 	flag++ ;
 	if (flag == 20)
 	{
+		printf(" [ Can Be ]\n");
 		me->picc = mlx_xpm_file_to_image(me->forinit, \
-		"lol.xpm", &me->xx, &me->yy);
+			"lol.xpm", &me->xx, &me->yy);
 		openthis(me);
 		me->picc = mlx_xpm_file_to_image(me->forinit, \
-		"lol.xpm", &me->xx, &me->yy);
+			"lol.xpm", &me->xx, &me->yy);
 		openthis(me);
 		flag = 0;
 	}
