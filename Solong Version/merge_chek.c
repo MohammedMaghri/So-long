@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:59:37 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:43:27 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ int	checkrows(char *string)
 }
 
 //the function that checks all the rules of the map toghter
-int	mergecheking(char **string,int numbercolum, int filed)
+int	mergecheking(char **string, int numbercolum, int filed)
 {
 	t_map	merge;
+
 	merge.res = checkwalsinmap(string);
 	if (merge.res == -1)
 		return (-1);
-	merge.i =  checksidesofmap(string);
+	merge.i = checksidesofmap(string);
 	if (merge.i == -1)
 		return (-1);
 	merge.index = check_double_items(string);

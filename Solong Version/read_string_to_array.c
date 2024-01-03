@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 15:51:02 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:46:59 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*copy_of_string(char *string)
 	return (make.allocation);
 }
 
-char	*new_copy_till_max_lenght(char *string, int maxlenght)
+char	*new_copy_lenght(char *string, int maxlenght)
 {
 	t_map	copy;
 
@@ -95,7 +95,7 @@ char	**stringreturn(char *string)
 			turn.checkpoint = turn.index ;
 			turn.index++ ;
 			turn.checkpoint--;
-			turn.twode[turn.i] = new_copy_till_max_lenght(string, turn.checkpoint);
+			turn.twode[turn.i] = new_copy_lenght(string, turn.checkpoint);
 			string = copy_of_string(&string[turn.index]);
 			turn.index = 0;
 			turn.i++ ;
@@ -105,6 +105,5 @@ char	**stringreturn(char *string)
 	turn.twode[turn.i] = copy_of_string(string);
 	turn.i++ ;
 	turn.twode[turn.i] = NULL ;
-	free(string);
-	return (turn.twode);
+	return (free(string), turn.twode);
 }

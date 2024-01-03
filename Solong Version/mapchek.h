@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 19:53:21 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:38:17 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,16 @@ typedef struct moveit
 {
 	char	**doubled;
 }	t_move;
-
-
-void	paste(char string);
+int		w_check(char string);
+void	first_complete(int key, t_fac *me, int row, int colum);
 int		count_number_len(int number);
+void	paste(char string);
 void	fill(int number, int lenght, int index, char *string);
+void	move_player(int key, t_fac *me, int row, int colum);
 char	*change_data_type(int number);
-int 	monster_move(int key, t_fac *me);
+int		monster_move(int key, t_fac *me);
 void	get_monster_position(t_fac *this, char **string);
 int		count_collectibles(char **string);
-void	move_player(int key, t_fac *me, int row, int colum);
 void	thiskey_complete(int key, t_fac *me, int row, int colum);
 int		destro(char string, t_fac *this);
 int		check(char string);
@@ -121,7 +121,7 @@ char	**get_array(char *string);
 int		checkwalsinmap(char **string);
 int		maplastcheck(char **string);
 int		check_double_items(char **string);
-int		mergecheking(char **string,int numbercolum, int filed);
+int		mergecheking(char **string, int numbercolum, int filed);
 void	trackleftside(char **string, int x, int y);
 void	printmapposition(char **string);
 int		checkrows(char *string);

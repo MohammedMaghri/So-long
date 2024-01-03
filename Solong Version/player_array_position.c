@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 20:23:06 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:07:22 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ void	get_monster_position(t_fac *this, char **string)
 	}
 }
 
-int		closeprogram(int key)
+int	closeprogram(int key)
 {
 	(void)key ;
 	exit(0);
 	return (0);
 }
+
 char	**merge_functions_checks(char *string, t_fac *me)
 {
 	t_map	mymap;
@@ -99,7 +100,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);
 	mymap.yy = player_colum_position(mymap.twode);
-	mymap.i =  weirddetection(mymap.twode);
+	mymap.i = weirddetection(mymap.twode);
 	if (mymap.i == -1)
 		return (NULL);
 	mymap.checker = mergecheking(mymap.twode, mymap.xx, mymap.yy);

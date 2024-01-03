@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/02 16:23:06 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:08:29 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	merge_for_moving_player(int key, t_fac *me)
 {
 	int	colum ;
 	int	row ;
+
 	if (key == 53 || key == 12)
 		exit(0);
 	get_monster_position(me, me->twodefor);

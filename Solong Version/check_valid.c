@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:17:14 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:32:22 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,25 @@ int	maplastcheck(char **string)
 	return (0);
 }
 
-// int	main(void)
-// {
-// 	t_map	thismain;
+int	weirddetection(char **string)
+{
+	int	index ;
+	int	increment;
+	int	flag ;
 
-// 	thismain.filed = open("map.txt", O_RDONLY);
-// 	thismain.twode = functionfilereader(thismain.filed);
-// 	thismain.filed = player_colum_position(thismain.twode);
-// 	thismain.numberofclomums = player_row_position(thismain.twode);
-// 	mergecheking(thismain.twode, thismain.numberofclomums, thismain.filed);
-// 	printmapposition(thismain.twode);
-// }
+	index = 0 ;
+	increment = 0 ;
+	while (index < maplenghtcheck(string))
+	{
+		while (string[index][increment])
+		{
+			flag = w_check(string[index][increment]);
+			if (flag == -1)
+				return (-1);
+			increment++ ;
+		}
+		increment = 0;
+		index++ ;
+	}
+	return (0);
+}

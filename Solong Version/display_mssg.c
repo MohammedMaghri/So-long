@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 16:45:39 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/01 19:42:38 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:30:49 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,33 +77,10 @@ int	checkthelenghtline(char **array)
 	return (0);
 }
 
-int w_check(string)
+int	w_check(char string)
 {
 	if (string != 'C' && string != 'P' && string != 'E' && \
 			string != '1' && string != '0' && string != 'X')
-		return (printf("Wierd Ithems detected .. !!" ), -1);
+		return (printf("Wierd Ithems detected ..>>!!" ), -1);
 	return (0);
 }
-int	weirddetection(char **string)
-{
-	int index ;
-	int increment;
-	int flag ;
-
-	index = 0 ;
-	increment = 0 ;
-	while (index < maplenghtcheck(string))
-	{
-		while (string[index][increment])
-		{
-			flag = w_check(string[index][increment]);
-				if (flag == -1)	
-					return (-1);
-			increment++ ;
-		}
-		increment = 0;
-		index++ ;
-	}
-	return (0);
-}
-
