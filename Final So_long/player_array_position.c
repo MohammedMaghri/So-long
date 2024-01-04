@@ -6,13 +6,12 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 12:16:56 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 16:15:24 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-// Funciton to display the player colum position
 int	player_colum_position(char **string)
 {
 	t_map	columposition;
@@ -34,7 +33,6 @@ int	player_colum_position(char **string)
 	return (0);
 }
 
-//Function to extract the player row position
 int	player_row_position(char **string)
 {
 	t_map	position ;
@@ -96,7 +94,7 @@ char	**merge_functions_checks(char *string, t_fac *me)
 
 	mymap.twode = get_array(string);
 	if (maplenghtcheck(mymap.twode) > 24 || (lencount(mymap.twode[0]) > 43))
-		return (printf("Mac Display can't handle this map ... !"), NULL);
+		return (putstr("Mac Display can't handle this map ... !"), NULL);
 	me->col = count_collectibles(mymap.twode);
 	me->twodefor = copy_of_array(mymap.twode);
 	mymap.xx = player_row_position(mymap.twode);

@@ -6,13 +6,12 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 16:45:47 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 11:32:22 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 16:14:34 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-// count the lenght of the 2d array map .
 int	maplenghtcheck(char **string)
 {
 	t_map	maplenght;
@@ -25,7 +24,6 @@ int	maplenghtcheck(char **string)
 	return (maplenght.index);
 }
 
-// function that counts items so we passe it to the function
 int	check_double_items(char **string)
 {
 	t_map	items ;
@@ -55,9 +53,6 @@ int	check_double_items(char **string)
 	return (0);
 }
 
-//this function checks the first row if its all walls 
-//and also the last one also by making
-//sure the check the whole sides with the checksides function .
 int	checkwalsinmap(char **string)
 {
 	t_map	square;
@@ -67,11 +62,11 @@ int	checkwalsinmap(char **string)
 	if (checkthelenghtline(string) == -1)
 		return (-1);
 	if (lencount(string[0]) == square.totallenghtline)
-		return (printf("The Map should not be a square ...! \n"), -1);
+		return (putstr("The Map should not be a square ...! \n"), -1);
 	while (string[0][square.index])
 	{
 		if (string[0][square.index] != '1')
-			return (printf("The first Wall should Be closed ....!\n") \
+			return (putstr("The first Wall should Be closed ....!\n") \
 				, -1);
 		square.index++ ;
 	}
@@ -79,7 +74,7 @@ int	checkwalsinmap(char **string)
 	while (string[square.totallenghtline][square.index])
 	{
 		if (string[square.totallenghtline][square.index] != '1')
-			return (printf("The Last wall should Be closed By walls... !\n") \
+			return (putstr("The Last wall should Be closed By walls... !\n") \
 				, -1);
 		square.index++ ;
 	}
@@ -98,7 +93,7 @@ int	maplastcheck(char **string)
 	{
 		res = checkrows(string[lastcheck.index]);
 		if (res == -1)
-			return (printf("\nThe Player can't reach the tokens in Map\
+			return (putstr("\nThe Player can't reach the tokens in Map\
 			 \n         Validity is invalid ..!\n\n"), -1);
 		lastcheck.index++ ;
 	}

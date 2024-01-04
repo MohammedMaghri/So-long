@@ -6,14 +6,12 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 12:47:40 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 16:58:56 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-//check the raw that is in the colum if it actully 
-//accessible with the player
 int	checkrows(char *string)
 {
 	int	index ;
@@ -36,19 +34,19 @@ int	movecoin(t_fac *me)
 	if (me->worck == 0)
 		return (0);
 	me->picc = mlx_xpm_file_to_image(me->forinit, \
-		"col.xpm", &me->xx, &me->yy);
+		"sym/col.xpm", &me->xx, &me->yy);
 	openthis(me);
 	me->picc = mlx_xpm_file_to_image(me->forinit, \
-		"col.xpm", &me->xx, &me->yy);
+		"sym/col.xpm", &me->xx, &me->yy);
 	openthis(me);
 	flag++ ;
 	if (flag == 15)
 	{
 		me->picc = mlx_xpm_file_to_image(me->forinit, \
-			"lol.xpm", &me->xx, &me->yy);
+			"sym/lol.xpm", &me->xx, &me->yy);
 		openthis(me);
 		me->picc = mlx_xpm_file_to_image(me->forinit, \
-			"lol.xpm", &me->xx, &me->yy);
+			"sym/lol.xpm", &me->xx, &me->yy);
 		openthis(me);
 		flag = 0;
 	}
@@ -75,23 +73,6 @@ int	mergecheking(char **string, int numbercolum, int filed)
 	return (0);
 }
 
-//this function just show live visaliwe of the map
-void	printmapposition(char **string)
-{
-	t_map	printmappostion ;
-
-	printmappostion.index = 0;
-	printmappostion.linelenght = maplenghtcheck(string);
-	while (printmappostion.index < printmappostion.linelenght)
-	{
-		printf("%s\n", string[printmappostion.index]);
-		printmappostion.index++ ;
-	}
-	printf("\n");
-}
-
-//this is the function that check is all the move are valid 
-//For the player
 void	backtrack(char **string, int x, int y)
 {
 	t_map		backtrace;

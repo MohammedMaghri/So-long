@@ -6,28 +6,11 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 02:57:28 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 11:56:39 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 17:06:15 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
-
-//here in this function we do make a copy of the 
-//2d array in here so wew can use it 
-char	**copymap(char *string)
-{
-	char	**allocation;
-	char	*ptr;
-	int		size ;
-	int		file ;
-
-	size = 1000 ;
-	ptr = malloc(sizeof(char) * size + 1);
-	file = open(string, O_RDONLY);
-	thisfunctionresader(ptr, file, size);
-	allocation = stringreturn(ptr);
-	return (allocation);
-}
 
 void	openthis(t_fac *me)
 {

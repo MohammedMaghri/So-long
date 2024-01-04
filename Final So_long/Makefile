@@ -10,14 +10,20 @@ LDLIBS = -lmlx -framework OpenGL -framework AppKit
 
 all : $(var)
 
+bonus : all
+
 $(var): $(OBJS) mapchek.h
 	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -o $(var) $(OBJS)
 
+%.o: %.c mapchek.h
+	$(CC) $(CFLAGS) -c $< -o $@
+	
 clean : $(var)
 	$(RM) $(var)
+
+re : fclean  all
+
 fclean : clean 
 	$(RM) $(OBJS)
 
-
-
-	
+.PHONY : clean fclean re all

@@ -6,15 +6,16 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 18:28:59 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 11:42:30 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 16:04:22 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 
-void	paste(char string)
+void	putstr(char *string)
 {
-	write(1, &string, 1);
+	while (*string)
+		write(2, string++, 1);
 }
 
 int	count_number_len(int number)
@@ -51,6 +52,8 @@ char	*change_data_type(int number)
 	index = 0 ;
 	total = count_number_len(number);
 	allocation = malloc(sizeof(char) * total + 1);
+	if (!allocation)
+		return (NULL);
 	allocation[total] = '\0';
 	total-- ;
 	if (number < 0)

@@ -6,14 +6,13 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 18:09:46 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 17:05:23 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
 #include "mlx.h"
 
-//this function stores some data about the lenght S. the Window Image Ptr...
 void	fill_struct(t_fac *string, char **str)
 {
 	string->xx = 60;
@@ -26,15 +25,15 @@ void	fill_struct(t_fac *string, char **str)
 	string->forwindow = mlx_new_window(string->forinit, \
 	(string->x * 60), (string->y * 60), "window");
 	string->pic = mlx_xpm_file_to_image(string->forinit, \
-	"Any.xpm", &string->xx, &string->yy);
+	"sym/Any.xpm", &string->xx, &string->yy);
 	string->picc = mlx_xpm_file_to_image(string->forinit, \
-	"lol.xpm", &string->xx, &string->yy);
+	"sym/lol.xpm", &string->xx, &string->yy);
 	string->picb = mlx_xpm_file_to_image(string->forinit, \
-	"lay.xpm", &string->xx, &string->yy);
+	"sym/lay.xpm", &string->xx, &string->yy);
 	string->picx = mlx_xpm_file_to_image(string->forinit, \
-	"mypi.xpm", &string->xx, &string->yy);
+	"sym/mypi.xpm", &string->xx, &string->yy);
 	string->picz = mlx_xpm_file_to_image(string->forinit, \
-	"dor.xpm", &string->xx, &string->yy);
+	"sym/dor.xpm", &string->xx, &string->yy);
 }
 
 void	put_character(t_fac *func, char **string)
@@ -56,10 +55,9 @@ void	put_character(t_fac *func, char **string)
 		func->picz, func->xx, func->yy);
 	if (func->worck == 0)
 		func->picz = mlx_xpm_file_to_image(func->forinit, \
-		"dorop.xpm", &func->xx, &func->yy);
+		"sym/dorop.xpm", &func->xx, &func->yy);
 }
 
-//we do put each image in it place with this function
 void	fill_window_map(t_fac *func, char **string)
 {
 	func->xx = 60;
@@ -86,13 +84,13 @@ int	checkfile_name(char *string)
 
 	total = lencount(string);
 	if (string[total - 1] != 'r')
-		return (printf("File name is not Valid !!"), -1);
+		return (putstr("File name is not Valid !!"), -1);
 	if (string[total - 2] != 'e')
-		return (printf("File name is not Valid !!"), -1);
+		return (putstr("File name is not Valid !!"), -1);
 	if (string[total - 3] != 'b')
-		return (printf("File name is not Valid !!"), -1);
+		return (putstr("File name is not Valid !!"), -1);
 	if (string[total - 4] != '.')
-		return (printf("File name is not Valid!!"), -1);
+		return (putstr("File name is not Valid!!"), -1);
 	return (0);
 }
 
@@ -102,7 +100,7 @@ int	main(int ac, char **argv)
 	int		res ;
 
 	if (ac != 2)
-		return (printf("\n No Valid map to Check .... !! \n\n"), 0);
+		return (putstr("\n No Valid map to Check .... !! \n\n"), 0);
 	res = checkfile_name(argv[1]);
 	if (res == -1)
 		return (0);
