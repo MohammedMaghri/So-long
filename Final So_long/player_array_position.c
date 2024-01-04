@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 21:29:11 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 12:16:56 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	player_row_position(char **string)
 	return (0);
 }
 
-void	get_monster_position(t_fac *this, char **string)
+int	get_monster_position(t_fac *this, char **string)
 {
 	int	index ;
 	int	flag ;
@@ -73,13 +73,14 @@ void	get_monster_position(t_fac *this, char **string)
 			{
 				this->monster_colum = flag ;
 				this->monster_row = total ;
-				return ;
+				return (0);
 			}
 			flag++ ;
 		}
 		flag = 0;
 		total++ ;
 	}
+	return (-1);
 }
 
 int	closeprogram(int key)

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/03 21:40:40 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/04 12:47:40 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	movecoin(t_fac *me)
 	(void)me ;
 	if (me->worck == 0)
 		return (0);
-	printf("in");
 	me->picc = mlx_xpm_file_to_image(me->forinit, \
 		"col.xpm", &me->xx, &me->yy);
 	openthis(me);
@@ -43,9 +42,8 @@ int	movecoin(t_fac *me)
 		"col.xpm", &me->xx, &me->yy);
 	openthis(me);
 	flag++ ;
-	if (flag == 20)
+	if (flag == 15)
 	{
-		printf(" [ Can Be ]\n");
 		me->picc = mlx_xpm_file_to_image(me->forinit, \
 			"lol.xpm", &me->xx, &me->yy);
 		openthis(me);
@@ -101,16 +99,19 @@ void	backtrack(char **string, int x, int y)
 	string[x][y] = 'F';
 	backtrace.linelenght = maplenghtcheck(string) - 1;
 	if ((y - 1) >= 0 && string[x][y - 1] \
-	!= '1' && string[x][y - 1] != 'F' && string[x][y - 1] != 'E')
+	!= '1' && string[x][y - 1] != 'F' && string[x][y - 1] != 'X' \
+	&& string[x][y - 1] != 'E')
 		backtrack(string, x, y - 1);
 	if (x < backtrace.linelenght && string[x + 1][y] != '1' && \
-	string[x + 1][y] != 'F' && string[x + 1][y] != 'E')
+	string[x + 1][y] != 'F' && string[x + 1][y] != 'X' \
+	&& string[x - 1][y] != 'E')
 		backtrack(string, x + 1, y);
 	if ((y + 1) < lencount(string[x]) && \
 	string[x][y + 1] != '1' && string[x][y + 1] != 'F' && \
-	string[x][y + 1] != 'E')
+	string[x][y + 1] != 'X' && string[x][y + 1] != 'E')
 		backtrack(string, x, y + 1);
 	if ((x - 1) >= 0 && string[x - 1][y] != '1' \
-	&& string[x - 1][y] != 'F' && string[x - 1][y] != 'E')
+	&& string[x - 1][y] != 'F' && string[x - 1][y] != 'X' \
+	&& string[x - 1][y] != 'E')
 		backtrack(string, x - 1, y);
 }
