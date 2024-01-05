@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 23:39:51 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:07:38 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	**return_array_from_text(int fd)
 		return (NULL);
 	thisfunctionresader(thistext, fd, size);
 	stringarray = stringreturn(thistext);
-	return (free(thistext), stringarray);
+	return (stringarray);
 }
 
 char	**get_array(char *string)

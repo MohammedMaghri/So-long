@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 22:37:04 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/05 13:11:51 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*copy_of_string(char *string)
 	make.allocation = malloc(sizeof(char) * (lencount(string) + 1));
 	if (!make.allocation)
 	{
-		free(make.allocation);
 		return (NULL);
 	}
 	while (string[make.index])
@@ -52,7 +51,6 @@ char	*new_copy_lenght(char *string, int maxlenght)
 	copy.allocation = malloc(sizeof(char) * maxlenght + 1);
 	if (!copy.allocation)
 	{
-		free(copy.allocation);
 		return (NULL);
 	}
 	while (string[copy.index] && copy.index <= maxlenght)
@@ -82,6 +80,7 @@ int	countnewline(char *string)
 char	**stringreturn(char *string)
 {
 	t_map	turn;
+	char *tmp;
 
 	turn.index = 0;
 	turn.i = 0 ;
@@ -96,14 +95,17 @@ char	**stringreturn(char *string)
 			turn.index++ ;
 			turn.checkpoint--;
 			turn.twode[turn.i] = new_copy_lenght(string, turn.checkpoint);
-			string = copy_of_string(&string[turn.index]);
+			tmp = copy_of_string(&string[turn.index]);
+			free(string);
+			string = tmp;
 			turn.index = 0;
 			turn.i++ ;
 		}
 		turn.index++ ;
 	}
 	turn.twode[turn.i] = copy_of_string(string);
+	free(string);
 	turn.i++ ;
 	turn.twode[turn.i] = NULL ;
-	return (free(string), turn.twode);
+	return turn.twode;
 }
