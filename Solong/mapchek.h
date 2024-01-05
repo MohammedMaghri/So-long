@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:10:57 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 23:06:54 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:39:28 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,10 @@ typedef struct mapvlidity
 	int		checkinglinevalidity ;
 	int		totallenghtline ;
 	void	*ptrmlx;
+	char	*tmp;
 }	t_map;
 
+char	*new_copy_lenght(char *string, int maxlenght);
 void	*ft_mlx_xpm_file_to_image(t_fac *me, char *string, int x, int y);
 void	*ft_mlx_new_window(t_fac *me);
 void	*ft_mlx_init(void);

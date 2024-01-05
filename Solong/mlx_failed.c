@@ -6,12 +6,11 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:20:39 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/04 23:06:20 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/05 15:39:44 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mapchek.h"
-#include "mlx.h"
 
 void	*ft_mlx_init(void)
 {
