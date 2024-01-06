@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:20:39 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 17:35:30 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 19:07:22 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	*ft_mlx_new_window(t_fac *me)
 	res = mlx_new_window(me->forinit, \
 	(me->x * 60), (me->y * 60), "window");
 	if (!res)
+	{
+		putstr("Protection Boy...");
 		exit (1);
+	}
 	return (res);
 }
 
@@ -39,11 +42,14 @@ void	*ft_mlx_xpm_file_to_image(t_fac *me, char *string, int x, int y)
 
 	res = mlx_xpm_file_to_image(me->forinit, string, &x, &y);
 	if (!res)
+	{
+		putstr("Put the Pic Boy ... ");
 		exit(1);
+	}
 	return (res);
 }
 
-void	reethfunction(char **string)
+void	freethfunction(char **string)
 {
 	int	index ;
 	int	total ;

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 17:52:49 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 16:43:58 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 18:42:29 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ int	main(int ac, char **argv)
 	int		res ;
 
 	if (ac != 2)
-		return (putstr("\n No Valid map to Check .... !! \n\n"), 0);
+		return (putstr("\n No Valid map to Check .... !! \n\n"), -1);
 	res = checkfile_name(argv[1]);
 	if (res == -1)
-		return (1);
+		return (-1);
 	merge_functions_checks(argv[1], &meme);
 }

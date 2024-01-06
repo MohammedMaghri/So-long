@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 14:10:02 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 17:30:11 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 19:06:28 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	get_monster_position(t_fac *this, char **string)
 int	closeprogram(int key)
 {
 	(void)key ;
-	putstr("You Out Boy ...!");
+	putstr("You Lost Boy ...");
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:57:15 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 17:31:48 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 18:55:17 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	movecoin(t_fac *me)
 
 	(void)me ;
 	if (me->worck == 0)
-		return (0);
+		return (-1);
 	me->picc = ft_mlx_xpm_file_to_image(me, \
 		"sym/col.xpm", me->xx, me->yy);
 	openthis(me);
