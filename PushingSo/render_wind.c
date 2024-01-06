@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 02:57:28 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 16:50:24 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 19:35:35 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	destro(char string, t_fac *this)
 	}
 	if (string == 'X')
 	{
+		freethfunction(this->twodefor);
 		mlx_clear_window(this->forinit, this->forwindow);
 		mlx_destroy_window(this->forinit, this->forwindow);
-		free(this->twodefor);
 		outofgame();
 	}
 	return (flag);

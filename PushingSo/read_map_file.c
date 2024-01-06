@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:26:54 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/06 17:29:10 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 19:28:03 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ char	**copy_of_array(char **string)
 	total = maplenghtcheck(string) + 1;
 	alocation = malloc(sizeof(char *) * (total));
 	if (!alocation)
-		return (NULL);
+	{
+		freethfunction(string);
+		exit(1);
+	}
 	while (index < maplenghtcheck(string))
 	{
 		alocation[index] = copy_of_string(string[index]);
@@ -92,6 +95,8 @@ char	**get_array(char *string)
 		exit(1);
 	}
 	putmap.twode = return_array_from_text(putmap.filed);
+	if (!putmap.twode)
+		(close(putmap.filed), exit(1));
 	close(putmap.filed);
 	return (putmap.twode);
 }

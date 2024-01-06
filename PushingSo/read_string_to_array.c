@@ -6,7 +6,7 @@
 /*   By: mmaghri <mmaghri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:43 by mmaghri           #+#    #+#             */
-/*   Updated: 2024/01/05 15:30:14 by mmaghri          ###   ########.fr       */
+/*   Updated: 2024/01/06 19:46:30 by mmaghri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ char	*copy_of_string(char *string)
 	make.index = 0;
 	make.allocation = malloc(sizeof(char) * (lencount(string) + 1));
 	if (!make.allocation)
-	{
-		free(make.allocation);
-		return (NULL);
-	}
+		exit(1);
 	while (string[make.index])
 	{
 		make.allocation[make.index] = string[make.index];
@@ -51,10 +48,7 @@ char	*new_copy_lenght(char *string, int maxlenght)
 	copy.index = 0 ;
 	copy.allocation = malloc(sizeof(char) * maxlenght + 1);
 	if (!copy.allocation)
-	{
-		free(copy.allocation);
-		return (NULL);
-	}
+		exit(1);
 	while (string[copy.index] && copy.index <= maxlenght)
 	{
 		copy.allocation[copy.index] = string[copy.index];
@@ -86,7 +80,7 @@ char	**stringreturn(char *string)
 	turn.index = 0;
 	turn.twode = malloc(sizeof(char *) * ((countnewline(string)) + 1));
 	if (!turn.twode)
-		return (free(turn.twode), NULL);
+		exit(1);
 	while (string[turn.index])
 	{
 		if (string[turn.index] == '\n')
